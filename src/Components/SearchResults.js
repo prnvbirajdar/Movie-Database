@@ -1,8 +1,8 @@
 import React from 'react';
 
-const SearchResults = (props) => {
+const img_api = "https://image.tmdb.org/t/p/w342"
 
-    const img_api = "https://image.tmdb.org/t/p/w342"
+const SearchResults = (props) => {
 
     const searchedMovies = props.searchList.map((movie)=>{
         return (<div key={movie.id}>
