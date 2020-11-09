@@ -1,4 +1,4 @@
-// import React from 'react';
+import React from 'react';
 
 // const img_api = "https://image.tmdb.org/t/p/w342"
 
@@ -21,3 +21,11 @@
 // }
  
 // export default SearchResults;
+
+const MovieResults = () => {
+    return(
+        <div>MOVIE</div>
+    )
+}
+
+export default MovieResults
