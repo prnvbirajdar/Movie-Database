@@ -8,42 +8,39 @@ const api = axios.create({ baseURL: base_URL });
 const api_key = "c7c1da267bcdbf81a6bc2a04f1c8d3a6"
 
 const App = () => {
-    const [popularMovies, setPopularMovies] = useState([])
+    // Defined useState
+    const [popularMovies, setPopularMovies] = useState([]) 
 
-    // useEffect(()=>{
-
-    // })
-
-    // const popularResponse =
-
-    // async
-
+    // Called API and logged the response
     const fetchPopularMovies = ()=>{
 
-         api.get("/search/movie", { 
+         api.get("/discover/movie", { 
             params: { 
                 api_key: api_key,
                 page: 1 
             } 
-        });
-
-    //     this.setState({popularMovieList: popularResponse.data.results})
-    //     console.log(popularResponse.data.results);
-    // }
+        }).then((response)=>{
+            console.log(response.data.results);
+            setPopularMovies(response.data.results)
+        })
+    }
     
+    // Called API function inside useEffect
+     useEffect(()=>{
+        fetchPopularMovies()
+     },[])
 
-    //  useEffect(()=>{
-    //     fetchPopularMovies()
-    //  },[])
-
-
-    return (<div>
-        {popularMovies.map(movie=>
-            <SearchResults />
-        )}
-        
-        </div>  );
+    // Mapped the original array on the Movie Component
+    return (
+        <div>
+            {popularMovies.length >0 && popularMovies.map(movie=> 
+                <SearchResults key={movie.id} {...movie}/>
+            )}
+        </div>  
+    );
 }
+
+
  
 // export default App;
 
