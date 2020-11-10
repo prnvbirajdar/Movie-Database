@@ -10,6 +10,7 @@ const api_key = "c7c1da267bcdbf81a6bc2a04f1c8d3a6"
 const App = () => {
     // Defined useState
     const [popularMovies, setPopularMovies] = useState([]) 
+   
 
     // Called API and logged the response
     const fetchPopularMovies = ()=>{
@@ -17,7 +18,7 @@ const App = () => {
          api.get("/discover/movie", { 
             params: { 
                 api_key: api_key,
-                page: 1 
+                sort_by: "populaity.desc"
             } 
         }).then((response)=>{
             console.log(response.data.results);
