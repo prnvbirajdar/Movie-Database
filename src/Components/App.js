@@ -1,45 +1,72 @@
-import React, {useState, useEffect } from 'react';
-import axios from 'axios'
-// import SearchBar from './SearchBar';
-import SearchResults from './SearchResults'
-
-const base_URL = "https://api.themoviedb.org/3"; 
-const api = axios.create({ baseURL: base_URL });
-const api_key = "c7c1da267bcdbf81a6bc2a04f1c8d3a6"
+import React from 'react';
+import MoviesRow from './MoviesRow'
+import {requests} from '../Api/axios'
 
 const App = () => {
-    // Defined useState
-    const [popularMovies, setPopularMovies] = useState([]) 
-   
 
-    // Called API and logged the response
-    const fetchPopularMovies = ()=>{
-
-         api.get("/discover/movie", { 
-            params: { 
-                api_key: api_key,
-                sort_by: "populaity.desc"
-            } 
-        }).then((response)=>{
-            console.log(response.data.results);
-            setPopularMovies(response.data.results)
-        })
-    }
-    
-    // Called API function inside useEffect
-     useEffect(()=>{
-        fetchPopularMovies()
-     },[])
-
-    // Mapped the original array on the Movie Component
     return (
         <div>
-            {popularMovies.length >0 && popularMovies.map(movie=> 
-                <SearchResults key={movie.id} {...movie}/>
-            )}
+            <MoviesRow title={'Trending Movies'} handleAPI = {requests.trendingMovies}/>
+            <MoviesRow title={'Popular Movies'} handleAPI = {requests.popularMovies}/>
+            <MoviesRow title={'Top Rated Movies'} handleAPI = {requests.topRatedMovies}/>
+            <MoviesRow title={'Comedy Movies'} handleAPI = {requests.comedyMovies}/>
+            <MoviesRow title={'Action Movies'} handleAPI = {requests.actionMovies}/>
+            <MoviesRow title={'Romantic Movies'} handleAPI = {requests.romanticMovies}/>
+            <MoviesRow title={'Crime Movies'} handleAPI = {requests.crimeMovies}/>
+            <MoviesRow title={'Horror Movies'} handleAPI = {requests.horrorMovies}/>
+            <MoviesRow title={'Documentaries'} handleAPI = {requests.documentaryMovies}/>
+
+
+
         </div>  
     );
 }
+ 
+export default App;
+
+
+
+
+// import SearchBar from './SearchBar';
+// import SearchResults from './SearchResults'
+
+// const base_URL = "https://api.themoviedb.org/3"; 
+// const api = axios.create({ baseURL: base_URL });
+// const api_key = "c7c1da267bcdbf81a6bc2a04f1c8d3a6"
+
+// const App = () => {
+//     // Defined useState
+//     const [popularMovies, setPopularMovies] = useState([]) 
+   
+
+//     // Called API and logged the response
+//     const fetchPopularMovies = ()=>{
+
+//          api.get("/discover/movie", { 
+//             params: { 
+//                 api_key: api_key,
+//                 sort_by: "populaity.desc"
+//             } 
+//         }).then((response)=>{
+//             console.log(response.data.results);
+//             setPopularMovies(response.data.results)
+//         })
+//     }
+    
+//     // Called API function inside useEffect
+//      useEffect(()=>{
+//         fetchPopularMovies()
+//      },[])
+
+//     // Mapped the original array on the Movie Component
+//     return (
+//         <div>
+//             {popularMovies.length >0 && popularMovies.map(movie=> 
+//                 <SearchResults key={movie.id} {...movie}/>
+//             )}
+//         </div>  
+//     );
+// }
 
 
  
@@ -91,5 +118,3 @@ const App = () => {
 //         );
 //     }
 // }
- 
-export default App;

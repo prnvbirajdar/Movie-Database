@@ -1,7 +1,7 @@
-import React from 'react';
+// import React from 'react';
 
 
-const img_api = "https://image.tmdb.org/t/p/w342"
+// const img_api = "https://image.tmdb.org/t/p/w342"
 
 // const SearchResults = (props) => {
 
@@ -23,13 +23,13 @@ const img_api = "https://image.tmdb.org/t/p/w342"
  
 // export default SearchResults;
 
-const MovieResults = ({title,poster_path,vote_average,overview}) => {
-    return (<div>
-        <h3>{title}</h3>
-        <img src={img_api + poster_path} alt="poster"/>
-        <p>{vote_average}</p>
-        <p>{overview}</p>
-    </div>)
-}
+// const MovieResults = ({title,poster_path,vote_average,overview}) => {
+//     return (<div>
+//         <h3>{title}</h3>
+//         <img src={img_api + poster_path} alt="poster"/>
+//         <p>{vote_average}</p>
+//         <p>{overview}</p>
+//     </div>)
+// }
 
-export default MovieResults
+// export default MovieResults
