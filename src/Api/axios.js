@@ -1,13 +1,20 @@
 import axios from 'axios'
 
+// API Key
 const api_key = "c7c1da267bcdbf81a6bc2a04f1c8d3a6"
 
+// Axios Create Instance
+const instance = axios.create({
+    baseURL: "https://api.themoviedb.org/3",  
+    params: { api_key: api_key,
+        language: "en-US",
+    }
+})
 
-// const tmdbApi = axios.create({
-//     base_URL: "https://api.themoviedb.org/3"})
-// export default requests
+//Image API Base Url
+const img_api = "https://image.tmdb.org/t/p/w342"
 
-
+//Genre Key Values
 const genres = {
     "Action":28,
     "Adventure":12,
@@ -39,15 +46,8 @@ const requests ={
     actionMovies: `discover/movie?with_genres=${genres.Action}`,
     romanticMovies:`discover/movie?with_genres=${genres.Romance}`,
     crimeMovies:`discover/movie?with_genres=${genres.Crime}`,
-    horrorMovies:`discover/movie?with_genres=${genres.Horrow}`,
+    horrorMovies:`discover/movie?with_genres=${genres.Horror}`,
     documentaryMovies:`discover/movie?with_genres=${genres.Documentary}`
 }
 
-const instance = axios.create({
-    baseURL: "https://api.themoviedb.org/3",  
-    params: { api_key: api_key,
-        language: "en-US",
-    }
-})
-
-export {requests, instance}
+export {requests, instance, img_api}

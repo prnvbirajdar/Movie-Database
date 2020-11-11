@@ -1,7 +1,6 @@
 import React, {useState, useEffect } from 'react';
-// import tmdbApi from '../Api/axios';
-import {instance} from '../Api/axios';
-
+import {instance, img_api} from '../Api/axios';
+import "../Components/MovieRow.css";
 
 const MoviesRow = ({title, handleAPI})=>{
     const [movies,setMovies] = useState([])
@@ -9,7 +8,6 @@ const MoviesRow = ({title, handleAPI})=>{
     useEffect(()=>{
         const fetchMovies = async()=>{
             const response = await instance.get(handleAPI)
-            console.log(response.data.results)
             setMovies(response.data.results)
             return response
         }
@@ -18,15 +16,22 @@ const MoviesRow = ({title, handleAPI})=>{
     },[handleAPI])
 
     return (
-        <React.Fragment>
+        <div className="row">
             <h2>{title}</h2>
-            {movies.map(movie=>{
-
-            })}
-        </React.Fragment>
-      );
-    
+            <div className='row__posters'>
+                {movies.map(movie=>{
+                return (
+                    <div key={movie.id} >
+                    {/*    <h3>{movie.title}</h3>*/}
+                        <img src={img_api + movie.poster_path} alt="poster" className='row__poster'/>
+                    {/*  <p>{movie.vote_average}</p>
+                        <p>{movie.overview}</p> */}
+                    </div>
+                    )  
+                })}
+            </div>
+        </div>
+    );
 }
 
- 
 export default MoviesRow;

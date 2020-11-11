@@ -1,12 +1,15 @@
 import React from 'react';
-import MoviesRow from './MoviesRow'
-import {requests} from '../Api/axios'
+import './App.css'
+import MoviesRow from './MoviesRow';
+import {requests} from '../Api/axios';
+
+
 
 const App = () => {
 
     return (
-        <div>
-            <MoviesRow title={'Trending Movies'} handleAPI = {requests.trendingMovies}/>
+        <div className="app">
+            <MoviesRow title={'Trending Movies'} handleAPI = {requests.trendingMovies}/>  
             <MoviesRow title={'Popular Movies'} handleAPI = {requests.popularMovies}/>
             <MoviesRow title={'Top Rated Movies'} handleAPI = {requests.topRatedMovies}/>
             <MoviesRow title={'Comedy Movies'} handleAPI = {requests.comedyMovies}/>
@@ -15,15 +18,11 @@ const App = () => {
             <MoviesRow title={'Crime Movies'} handleAPI = {requests.crimeMovies}/>
             <MoviesRow title={'Horror Movies'} handleAPI = {requests.horrorMovies}/>
             <MoviesRow title={'Documentaries'} handleAPI = {requests.documentaryMovies}/>
-
-
-
         </div>  
     );
 }
  
 export default App;
-
 
 
 
