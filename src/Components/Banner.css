@@ -10,6 +10,11 @@
     transform: translate(-50%, -50%);
 } */
 
+/* .banner__movie{
+    display: flex;
+    overflow-y: hidden;
+} */
+
 .banner{
     overflow: hidden;
     height: 95vh;

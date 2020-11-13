@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {requests, instance, img_api} from '../Api/axios';
+import {requests, instance} from '../Api/axios';
 import './Banner.css';
 
 import "slick-carousel/slick/slick.css";
@@ -13,9 +13,14 @@ function Banner() {
     useEffect(()=>{
         const fetchData = async ()=>{
             const response = await instance.get(requests.upcomingMovies)
-            // Shuffle response array
-            const shuffled = response.data.results.sort(() => 0.5 - Math.random());
-            setMovies(shuffled)
+                
+                // refinedMovies removes all the movie objects with broken image files,
+                // shuffles and slices the array to render 4 random working movie objects
+                const refinedMovies = response.data.results.filter((movie)=>{
+                    return movie?.backdrop_path !== null || "" || undefined
+                }).sort(() => 0.5 - Math.random()).slice(0,4)
+
+            setMovies(refinedMovies)
             return response
         }
         fetchData()
@@ -41,11 +46,11 @@ function Banner() {
              {movies.slice(0,4).map(movie=>{ //Picks first 5 movies from the shuffled array
              return (
                  <div key={movie.id} className="banner__movie" >
-                     <img src={`https://image.tmdb.org/t/p/w1280${movie.backdrop_path}`} width="100%" alt={movie.title} className='banner__poster'/>
                      <div className="banner__movie-info">
                          <h3>{movie?.title || movie?.original_name || movie?.name}</h3>
                          <button classname="banner__button">Play Trailer</button>
                          <p className="banner__overview">{movie.overview}</p>
+                         <img src={`https://image.tmdb.org/t/p/w1280${movie.backdrop_path}`} width="100%" alt={movie.title} className='banner__poster'/>
                      </div>
                  </div>
                  )  
