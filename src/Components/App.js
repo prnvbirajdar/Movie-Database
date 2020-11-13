@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css'
 import MoviesRow from './MoviesRow';
 import {requests} from '../Api/axios';
+import Banner from './Banner'
 
 
 
@@ -9,6 +10,7 @@ const App = () => {
 
     return (
         <div className="app">
+            <Banner/>
             <MoviesRow title={'Trending Movies'} handleAPI = {requests.trendingMovies}/>  
             <MoviesRow title={'Popular Movies'} handleAPI = {requests.popularMovies}/>
             <MoviesRow title={'Top Rated Movies'} handleAPI = {requests.topRatedMovies}/>

@@ -1,13 +1,15 @@
 .row{
     margin-left: 2em;
     margin-top: 2em;
+    /* margin-right: 1em; */
 }
 
 .row__posters{
     display: flex;
     overflow-y: hidden; /* hides vertical scrolling in the row */
     overflow-x: scroll; /* allows for horizontal scrolling in the row  */
-    margin: 2em 1em;
+    margin: 0em 1em 0 1em;
+    padding: 1em 0.5em;
 }
 
 .row__posters::-webkit-scrollbar{
@@ -16,8 +18,11 @@
 
 .row__movie{
     margin-right: 5em;
-    overflow: hidden;
 }
+/* 
+.row__movie:last-child{
+    margin-right: 2em;
+} */
 
 .row__poster{
     object-fit: contain; /* maintains aspect ratio  */
@@ -28,7 +33,7 @@
 }
 
 .row__poster:hover{
-    transform:scale(1.05);
+    transform:scale(1.06);
 }
 
 .row__movie-info{
