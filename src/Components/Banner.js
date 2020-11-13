@@ -30,29 +30,61 @@ function Banner() {
         autoplay: true, 
         lazyLoad: true, //lazy loading on
         autoplaySpeed: 5000, //new poster every 5 seconds
-        pauseOnHover: true, //pauses on hover
+        pauseOnHover: false, //pauses on hover
         speed: 500, //0.5 for transition
         fade: true, //fading transition
       }
 
     return (
         <header className="banner">
-           <Slider {...settings}>
-                    {movies.slice(0,4).map(movie=>{ //Picks first 5 movies from the shuffled array
-                    return (
-                        <div key={movie.id} className="banner__movie" >
-                            <img src={img_api.backdrop + movie?.backdrop_path} alt={movie.title} className='banner__poster'/>
-                            <div className="banner__movie-info">
-                                <h3>{movie?.title || movie?.original_name || movie?.name}</h3>
-                                <button classname="banner__button">Play Trailer</button>
-                                <p className="banner__overview">{movie.overview}</p>
-                            </div>
-                        </div>
-                        )  
-                    })}
+            <Slider {...settings}>
+             {movies.slice(0,4).map(movie=>{ //Picks first 5 movies from the shuffled array
+             return (
+                 <div key={movie.id} className="banner__movie" >
+                     <img src={`https://image.tmdb.org/t/p/w1280${movie.backdrop_path}`} width="100%" alt={movie.title} className='banner__poster'/>
+                     <div className="banner__movie-info">
+                         <h3>{movie?.title || movie?.original_name || movie?.name}</h3>
+                         <button classname="banner__button">Play Trailer</button>
+                         <p className="banner__overview">{movie.overview}</p>
+                     </div>
+                 </div>
+                 )  
+             })}
             </Slider>
         </header>
     )
 }
 
 export default Banner
+
+
+
+
+ 
+
+
+
+
+
+
+// <div>
+// <Slider {...settings}>
+// {movies.slice(0,4).map(movie=>{ //Picks first 5 movies from the shuffled array
+// return (
+//     <header className='banner' 
+//     style={{
+//     backgroundSize: "cover",
+//     backgroundPosition:"center center",
+//     backgroundImage:`url(https://image.tmdb.org/t/p/original${movie.backdrop_path})`}}
+//     >
+//         <div className="banner__movie-info">
+//             <h3>{movie?.title || movie?.original_name || movie?.name}</h3>
+//             <button classname="banner__button">Play Trailer</button>
+//             <p className="banner__overview">{movie.overview}</p>
+//         </div>
+//     </header>
+// )
+
+// })} 
+// </Slider>  
+// </div>

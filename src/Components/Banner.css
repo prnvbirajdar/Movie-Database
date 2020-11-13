@@ -11,15 +11,23 @@
 } */
 
 .banner{
-    border: 5px solid red;
-    color: pink;
+    overflow: hidden;
+    height: 95vh;
 }
 
 .banner p{
     width: 40em;
     font-size: 1rem;
+    padding-right: 5em;
+    text-align: center;
 }
 
 .banner__poster{
     object-fit: contain;
+    background-size: cover;
+}
+
+.banner__movie-info{
+    z-index: 1000;
+    
 }
