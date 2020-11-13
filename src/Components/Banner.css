@@ -1,0 +1,25 @@
+/* .banner img{
+    position: relative;
+    text-align: center;
+} 
+
+.banner__movie-info{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+} */
+
+.banner{
+    border: 5px solid red;
+    color: pink;
+}
+
+.banner p{
+    width: 40em;
+    font-size: 1rem;
+}
+
+.banner__poster{
+    object-fit: contain;
+}

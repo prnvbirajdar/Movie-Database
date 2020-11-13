@@ -12,7 +12,10 @@ const instance = axios.create({
 })
 
 //Image API Base Url
-const img_api = "https://image.tmdb.org/t/p/w342"
+const img_api = {
+    poster:"https://image.tmdb.org/t/p/w185", // other width options w92 ,154, 185, 342, 500, 780, original
+    backdrop:"https://image.tmdb.org/t/p/w780" //"w300", "w780", "w1280", "original"
+} 
 
 //Genre Key Values
 const genres = {
@@ -39,6 +42,7 @@ const genres = {
   
 // TMDB API requests for different lists
 const requests ={
+    upcomingMovies:'/movie/upcoming',
     trendingMovies: `/trending/movie/week`,
     popularMovies: `/movie/popular`,
     topRatedMovies: `/movie/top_rated`,

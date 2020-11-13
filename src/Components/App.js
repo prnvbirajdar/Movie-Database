@@ -4,8 +4,6 @@ import MoviesRow from './MoviesRow';
 import {requests} from '../Api/axios';
 import Banner from './Banner'
 
-
-
 const App = () => {
 
     return (

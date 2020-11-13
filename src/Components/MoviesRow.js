@@ -22,12 +22,12 @@ const MoviesRow = ({title, handleAPI})=>{
                 {movies.map(movie=>{
                 return (
                     <div key={movie.id} className="row__movie" >
-                        <img src={img_api + movie.poster_path} alt={movie.title} className='row__poster'/>
-                        <div className="row__movie-info">
-                            <h3>{movie.title}</h3>
+                        <img src={img_api.poster + movie?.poster_path} alt={movie.title} className='row__poster'/>
+                        {/*<div className="row__movie-info">
+                            <h1>{movie?.title || movie?.original_name || movie?.name}</h1>
                             <span>{movie.vote_average}</span>
                         </div>
-                      {/*    <p>{movie.overview}</p> */}
+                          <p>{movie.overview}</p> */}
                     </div>
                     )  
                 })}
