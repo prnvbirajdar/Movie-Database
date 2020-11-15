@@ -35,7 +35,6 @@ function Banner() {
         autoplay: true, 
         lazyLoad: true, //lazy loading on
         autoplaySpeed: 5000, //new poster every 5 seconds
-        pauseOnHover: false, //pauses on hover
         speed: 500, //0.5 for transition
         fade: true, //fading transition
       }
