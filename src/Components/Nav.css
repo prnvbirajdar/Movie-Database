@@ -1,0 +1,23 @@
+.nav{
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 2em;
+    transition: all 500ms ease-in-out;
+}
+
+.nav__active{
+    background-color:  #141414;
+}
+
+.nav__input{
+    border: none ;
+    border-radius: 5px;
+}
+
+.fa-film{
+    font-size: 2rem;
+}

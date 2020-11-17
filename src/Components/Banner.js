@@ -29,7 +29,7 @@ function Banner() {
         <header 
             className="banner"
             style={{
-            backgroundImage: `linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(https://image.tmdb.org/t/p/original${movie.backdrop_path})`}}
+            backgroundImage: `linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url(https://image.tmdb.org/t/p/original${movie.backdrop_path})`}}
             >
                 <div className="banner__contents">
                     <h1 className="banner__title">{movie?.title || movie?.original_name || movie?.name}</h1>
@@ -38,7 +38,6 @@ function Banner() {
                     <h1 className="banner__overview">{truncate(movie.overview, 150)}</h1>
                 </div>
             <div className="banner--fadeBottom "/>
-
         </header>
     )
 }
