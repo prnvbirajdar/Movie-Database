@@ -3,11 +3,13 @@ import './App.css'
 import MoviesRow from './MoviesRow';
 import {requests} from '../Api/axios';
 import Banner from './Banner'
+import Nav from './Nav'
 
 const App = () => {
 
     return (
         <div className="app">
+            <Nav/>
             <Banner/>
             <MoviesRow title={'Trending Movies'} handleAPI = {requests.trendingMovies}/>  
             <MoviesRow title={'Popular Movies'} handleAPI = {requests.popularMovies}/>

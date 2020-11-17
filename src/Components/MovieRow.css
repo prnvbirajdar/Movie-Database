@@ -4,6 +4,11 @@
     /* margin-right: 1em; */
 }
 
+.row__title{
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
 .row__posters{
     display: flex;
     overflow-y: hidden; /* hides vertical scrolling in the row */
