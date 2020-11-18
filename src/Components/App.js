@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter, Route, Link} from 'react-router-dom'
+import {BrowserRouter, Route} from 'react-router-dom'
 import Movies from './Movies'
 import Nav from './Nav'
 import SearchResults from './SearchResults'
@@ -15,7 +15,6 @@ const App = () => {
                     <Route path="/search" component={SearchResults}/>
                 </div>
             </BrowserRouter>
-            
         </div>  
     );
 }

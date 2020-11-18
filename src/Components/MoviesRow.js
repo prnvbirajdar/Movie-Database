@@ -13,7 +13,7 @@ const MoviesRow = ({title, handleAPI})=>{
                 // refinedMovies removes all the movie objects with broken image files
                 // and slices the array to render 10 working movie objects
                 const refinedMovies = response.data.results.filter((movie)=>{
-                    return movie?.poster_path !== null || "" || undefined 
+                    return movie?.poster_path !== null || "" || undefined
                 }).slice(0,10)
 
             setMovies(refinedMovies)
