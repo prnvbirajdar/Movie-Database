@@ -7,7 +7,8 @@ const MoviesRow = ({title, handleAPI})=>{
 
     useEffect(()=>{
         const fetchMovies = async()=>{
-            const response = await instance.get(handleAPI)
+            const response = await instance.get(handleAPI).catch(err => { console.log("MovieRow Error",err.response) })
+
 
                 // refinedMovies removes all the movie objects with broken image files
                 // and slices the array to render 10 working movie objects

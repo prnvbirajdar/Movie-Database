@@ -8,6 +8,8 @@ const instance = axios.create({
     baseURL: "https://api.themoviedb.org/3",  
     params: { api_key: api_key,
         language: "en-US",
+        page:"1",
+        include_adult:"false"
     }
 })
 
@@ -42,6 +44,7 @@ const genres = {
   
 // TMDB API requests for different lists
 const requests ={
+    searchMovies: `/search/movie`,
     upcomingMovies:'/movie/upcoming',
     trendingMovies: `/trending/movie/week`,
     popularMovies: `/movie/popular`,

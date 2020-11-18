@@ -5,7 +5,7 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
-    padding: 2em;
+    padding: 2em 4em;
     transition: all 500ms ease-in-out;
 }
 
@@ -14,9 +14,23 @@
 }
 
 .nav__input{
-    border: none ;
+    background-color: transparent;
+    border: 2px solid rgba(229, 229, 229, 0.384);
     border-radius: 5px;
+    padding: 0.5em 0.8em;
+    margin: 0;
+    color:inherit;
+    font-family: inherit;
 }
+
+.nav__input:focus{
+    outline: 0;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #e5e5e5;
+    opacity: 0.8; /* Firefox */
+  }
 
 .fa-film{
     font-size: 2rem;
