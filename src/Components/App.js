@@ -1,25 +1,21 @@
 import React from 'react';
-import './App.css'
-import MoviesRow from './MoviesRow';
-import {requests} from '../Api/axios';
-import Banner from './Banner'
+import {BrowserRouter, Route, Link} from 'react-router-dom'
+import Movies from './Movies'
 import Nav from './Nav'
+import SearchResults from './SearchResults'
 
 const App = () => {
 
     return (
         <div className="app">
-            <Nav/>
-            <Banner/>
-            <MoviesRow title={'Trending Movies'} handleAPI = {requests.trendingMovies}/>  
-            <MoviesRow title={'Popular Movies'} handleAPI = {requests.popularMovies}/>
-            <MoviesRow title={'Top Rated Movies'} handleAPI = {requests.topRatedMovies}/>
-            <MoviesRow title={'Comedy Movies'} handleAPI = {requests.comedyMovies}/>
-            <MoviesRow title={'Action Movies'} handleAPI = {requests.actionMovies}/>
-            <MoviesRow title={'Romantic Movies'} handleAPI = {requests.romanticMovies}/>
-            <MoviesRow title={'Crime Movies'} handleAPI = {requests.crimeMovies}/>
-            <MoviesRow title={'Horror Movies'} handleAPI = {requests.horrorMovies}/>
-            <MoviesRow title={'Documentaries'} handleAPI = {requests.documentaryMovies}/>
+            <BrowserRouter> 
+                <div>
+                    <Nav/>
+                    <Route path="/" exact component={Movies}/>
+                    <Route path="/search" component={SearchResults}/>
+                </div>
+            </BrowserRouter>
+            
         </div>  
     );
 }

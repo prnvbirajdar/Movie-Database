@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import './Nav.css'
 import {requests, instance} from '../Api/axios';
+import {Link} from 'react-router-dom'
 // import Search from './Search'
 
 
@@ -56,7 +57,9 @@ function Nav() {
         <nav>
             <div className={`nav ${navbar && "nav__active"}`}>
                 <div className="nav__icon">
-                    <i class="fas fa-film"></i>
+                    <Link to="/">
+                        <i className="fas fa-film"></i>
+                    </Link>
                 </div>
 
                 <form  onSubmit={handleSubmit}> 
