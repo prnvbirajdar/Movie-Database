@@ -4,5 +4,8 @@ import App from './Components/App'
 import './index.css'
 
 ReactDOM.render(
-    <App/>,document.querySelector("#root")
+    <div>
+        <App/>
+    </div>,
+    document.querySelector("#root")
 )

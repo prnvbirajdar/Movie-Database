@@ -5,6 +5,7 @@ import './Banner.css';
 function Banner() {
     const [movie, setMovie] = useState([])
 
+
     useEffect(()=>{
         const fetchData = async ()=>{
             const response = await instance.get(requests.upcomingMovies).catch(err => { console.log("Banner Error", err.response) })
@@ -16,9 +17,6 @@ function Banner() {
                 })
 
                 setMovie(refinedMovies[Math.floor(Math.random() * refinedMovies.length)])
-                
-
-
             return response
         }
         fetchData()
@@ -30,19 +28,21 @@ function Banner() {
     }
 
     return (
-        <header 
-            className="banner"
-            style={{
-            backgroundImage: `linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url(${img_api.backdrop}${movie?.backdrop_path})`}}
-        >
-                <div className="banner__contents">
-                    <h1 className="banner__title">{movie?.title || movie?.original_name || movie?.name}</h1>
-                    <button className="banner__button">Play Trailer</button>
-                    <button className="banner__button">Details</button>
-                    <h1 className="banner__overview">{truncate(movie.overview, 150)}</h1>
-                </div>
-            <div className="banner--fadeBottom "/>
-        </header>
+        <React.Fragment>
+            <header 
+                className="banner"
+                style={{
+                backgroundImage: `linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url(${img_api.backdrop}${movie?.backdrop_path})`}}
+            >
+                    <div className="banner__contents">
+                        <h1 className="banner__title">{movie?.title || movie?.original_name || movie?.name}</h1>
+                        <button className="banner__button">Play Trailer</button>
+                        <button className="banner__button">Details</button>
+                        <h1 className="banner__overview">{truncate(movie.overview, 150)}</h1>
+                    </div>
+                <div className="banner--fadeBottom "/>
+            </header>
+        </React.Fragment>
     )
 }
 

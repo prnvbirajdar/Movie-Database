@@ -4,6 +4,10 @@ import Banner from './Banner'
 import {requests} from '../Api/axios';
 
 function Movies() {
+
+
+
+
     return (
         <div>
             <Banner/>
