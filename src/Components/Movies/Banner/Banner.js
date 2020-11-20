@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {requests, instance,img_api} from '../Api/axios';
+import {requests, instance,img_api} from '../../../Api/axios';
 import './Banner.css';
 
 function Banner() {

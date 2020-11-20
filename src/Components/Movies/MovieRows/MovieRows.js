@@ -1,6 +1,7 @@
 import React, {useState, useEffect } from 'react';
-import {instance, img_api} from '../Api/axios';
-import "../Components/MovieRow.css";
+import {instance, img_api} from '../../../Api/axios';
+import "./MovieRows.css";
+import {Link} from 'react-router-dom'
 
 const MoviesRow = ({title, handleAPI})=>{
     const [movies,setMovies] = useState([])
@@ -34,7 +35,7 @@ const MoviesRow = ({title, handleAPI})=>{
                         {movies.map(movie=>{
                         return (
                             <div key={movie.id} className="row__movie" >
-                                <img src={img_api.poster + movie?.poster_path} alt={movie.title} className='row__poster'/>
+                               <Link to={`/movie/${movie.id}`}><img src={img_api.poster + movie?.poster_path} alt={movie.title} className='row__poster'/></Link>
                                 {/*<div className="row__movie-info">
                                     <h1>{movie?.title || movie?.original_name || movie?.name}</h1>
                                     <span>{movie.vote_average}</span>

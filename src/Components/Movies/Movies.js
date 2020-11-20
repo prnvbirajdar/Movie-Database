@@ -1,7 +1,7 @@
 import React from 'react'
-import MoviesRow from './MoviesRow';
-import Banner from './Banner'
-import {requests} from '../Api/axios';
+import MoviesRow from './MovieRows/MovieRows';
+import Banner from './Banner/Banner'
+import {requests} from '../../Api/axios';
 
 function Movies() {
 

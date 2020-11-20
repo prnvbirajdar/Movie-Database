@@ -1,8 +1,9 @@
 import React from 'react';
-import {BrowserRouter, Route} from 'react-router-dom'
-import Movies from './Movies'
-import Nav from './Nav'
+import {BrowserRouter, Route, Switch} from 'react-router-dom'
+import Movies from './Movies/Movies'
+import Nav from './Nav/Nav'
 import SearchResults from './SearchResults'
+import MovieDetails from './Movies/MovieDetails/MovieDetails'
 
 const App = () => {
 
@@ -11,8 +12,11 @@ const App = () => {
             <BrowserRouter> 
                 <div>
                     <Nav/>
-                    <Route path="/" exact component={Movies}/>
-                    <Route path="/search" component={SearchResults}/>
+                        <Switch>
+                            <Route path="/" exact component={Movies}/>
+                            <Route path="/search" component={SearchResults}/>
+                            <Route path="/movie/:id" component={MovieDetails}/>
+                        </Switch>
                 </div>
             </BrowserRouter>
         </div>  
