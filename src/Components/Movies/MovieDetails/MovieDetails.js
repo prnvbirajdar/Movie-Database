@@ -29,11 +29,7 @@ function MovieDetails({match}) {
             <p>{movie.overview}</p>
             <p>{movie.runtime}</p>
             <p>{movie.release_date}</p>
-
-            <div>{movie.genres.map(genre=>{
-                return <p>({genre.name})</p>
-            })}</div>
-            <p>{movie.overview}</p>
+            <p>{movie.vote_average}</p>
             
 
         </div>
