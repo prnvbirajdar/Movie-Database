@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {requests, instance,img_api} from '../../../Api/axios';
 import './Banner.css';
+import {Link} from 'react-router-dom'
 
 function Banner() {
     const [movie, setMovie] = useState([])
@@ -37,7 +38,7 @@ function Banner() {
                     <div className="banner__contents">
                         <h1 className="banner__title">{movie?.title || movie?.original_name || movie?.name}</h1>
                         <button className="banner__button">Play Trailer</button>
-                        <button className="banner__button">Details</button>
+                      <Link to={`/movie/${movie.id}`><button className="banner__button">Details</button></Link>
                         <h1 className="banner__overview">{truncate(movie.overview, 150)}</h1>
                     </div>
                 <div className="banner--fadeBottom "/>

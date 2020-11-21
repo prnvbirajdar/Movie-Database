@@ -10,8 +10,7 @@ const MoviesRow = ({title, handleAPI})=>{
         
         const fetchMovies = async()=>{
             const response = await instance.get(handleAPI).catch(err => { console.log("MovieRow Error",err.response) })
-
-
+            
                 // refinedMovies removes all the movie objects with broken image files
                 // and slices the array to render 10 working movie objects
                 const refinedMovies = response.data.results.filter((movie)=>{
