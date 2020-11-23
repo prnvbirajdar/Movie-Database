@@ -1,0 +1,27 @@
+.movieDetails{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid salmon;
+    height: 100vh;
+    width: 100%;
+}
+
+.movieDetails__main{
+    display: flex;
+    justify-content: space-evenly;
+    border: 1px solid salmon;
+    width: 100%;
+
+
+}
+
+.movieDetails__cast{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+
+
+}
