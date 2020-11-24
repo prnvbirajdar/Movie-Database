@@ -2,26 +2,17 @@ import React, {useState, useEffect} from 'react';
 import {instance, img_api} from '../../../Api/axios';
 import './MovieDetails.css';
 import {Link} from 'react-router-dom';
-import YouTube from 'react-youtube';
+
+import '../../../../node_modules/react-modal-video/css/modal-video.min.css';
+import ModalVideo from 'react-modal-video'
 
 function MovieDetails({match}) {
     const [movie, setMovie] = useState([])
     const [credits, setCredits] = useState([])
     const [similar, setSimilar] = useState([])
+
+    const [isOpen, setOpen] = useState(false)
     const [trailer,setTrailer] = useState('')
-
-    const opts = {
-        height: '390',
-        width: '100%',
-        playerVars: {
-          // https://developers.google.com/youtube/player_parameters
-          autoplay: 0,
-        },
-    };
-
-    const handlePlay = ()=>{
-        
-    }
 
     useEffect(()=>{
         const fetchMovie = async ()=>{
@@ -50,10 +41,6 @@ function MovieDetails({match}) {
     
     },[match.params.id])
 
-    
-
-    // console.log(trailer);
-
     //prevents from rendering empty arrays and giving errors.
     if(!movie.genres || !credits.cast || !credits.crew || !trailer) return null
 
@@ -66,7 +53,7 @@ function MovieDetails({match}) {
                     <div className="movieDetails__titleEtc">
                         <p>{Math.floor(movie.runtime/60)}h {(movie.runtime%60)}min </p> {/*converts mins to hr min*/}
                         <p className="movieDetails__rating">{movie.vote_average}</p>
-                        <i class="far fa-play-circle" onClick={handlePlay}>Play Trailer</i>
+                        <i class="far fa-play-circle" onClick={()=> setOpen(true)}>Play Trailer</i>
                     </div>
                     <p>Overview: {movie.overview}</p> 
                     {credits.crew && credits.crew
@@ -80,11 +67,19 @@ function MovieDetails({match}) {
                     </div>
                 </div>
             </div>
+            
+            <div className="movieDetails__trailer">
+                {trailer && <ModalVideo 
+                    channel='youtube' 
+                    autoplay
+                    isOpen={isOpen} 
+                    videoId={trailer} 
+                    onClose={() => setOpen(false)} 
+                />}
+            </div>
+            
 
-           <div className="movieDetails__trailer">
-                {trailer && <YouTube videoId={trailer} opts={opts} />}
-           </div>
-
+          
             <div className="movieDetails__cast">
                 <h2 className="movieDetails__cast__title">Cast</h2>
                 <div className="movieDetails__cast__images">
@@ -116,8 +111,7 @@ function MovieDetails({match}) {
                             </div>
                             <p>{movie.overview}</p> */}
                         </div>
-                        )  
-                    })}
+                    )})}
                 </div>
             </div>
         </div>
