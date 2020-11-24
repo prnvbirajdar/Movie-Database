@@ -9,7 +9,8 @@ const MoviesRow = ({title, handleAPI})=>{
     useEffect(()=>{
         
         const fetchMovies = async()=>{
-            const response = await instance.get(handleAPI).catch(err => { console.log("MovieRow Error",err.response) })
+            const response = await instance.get(handleAPI)
+                .catch(err => { console.log("MovieRow Error",err.response) })
             
                 // refinedMovies removes all the movie objects with broken image files
                 // and slices the array to render 10 working movie objects
@@ -31,15 +32,12 @@ const MoviesRow = ({title, handleAPI})=>{
                 <div className="row">
                     <h2 className="row__title">{title}</h2>
                     <div className='row__posters'>
-                        {movies.map(movie=>{
+                        {movies && movies.map(movie=>{
                         return (
                             <div key={movie.id} className="row__movie" >
-                               <Link to={`/movie/${movie.id}`}><img src={img_api.poster + movie?.poster_path} alt={movie.title} className='row__poster'/></Link>
-                                {/*<div className="row__movie-info">
-                                    <h1>{movie?.title || movie?.original_name || movie?.name}</h1>
-                                    <span>{movie.vote_average}</span>
-                                </div>
-                                <p>{movie.overview}</p> */}
+                                <Link to={`/movie/${movie.id}`}>
+                                    <img src={img_api.poster + movie?.poster_path} alt={movie.title} className='row__poster'/>
+                                </Link>
                             </div>
                             )  
                         })}

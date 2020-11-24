@@ -48,6 +48,10 @@
     background-color: rgba(255, 0, 0, 0.349);
 }
 
+.movieDetails__trailer{
+    width: 100%;
+}
+
 .movieDetails__cast,
 .movieDetails__similar{
     display: flex;

@@ -9,7 +9,8 @@ function Banner() {
 
     useEffect(()=>{
         const fetchData = async ()=>{
-            const response = await instance.get(requests.upcomingMovies).catch(err => { console.log("Banner Error", err.response) })
+            const response = await instance.get(requests.upcomingMovies)
+                .catch(err => { console.log("Banner Error", err.response) })
 
                 // refinedMovies removes all the movie objects with broken image files,
                 // and selects a random movie to display
