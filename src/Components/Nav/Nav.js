@@ -71,7 +71,6 @@ function Nav() {
                     onChange={handleChange}
                     />
                 </form>
-               
             </div>
         </nav>
     )

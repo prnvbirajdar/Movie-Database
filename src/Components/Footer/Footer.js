@@ -1,39 +1,43 @@
 import React from 'react'
+import './Footer.css'
 
 function Footer() {
     return (
-        <footer class="footer main-grid">
-            <ul class="social">
-                <li class="social-list">
+        <footer className="footer">
+            <ul className="social">
+                <li className="social-list">
                     <a
                     target="_blank"
                     rel="noreferrer"
                     href="mailto: prnvbirajdar@gmail.com"
-                    class="social-link">
-                        <i class="far fa-envelope"></i>
+                    className="social-link">
+                        <i className="far fa-envelope"></i>
                     </a>
                 </li>
-                <li class="social-list">
+                <li className="social-list">
                     <a
                     target="_blank"
                     rel="noreferrer"
                     href="https://github.com/prnvbirajdar"
-                    class="social-link">
-                        <i class="fab fa-github-alt"></i>
+                    className="social-link">
+                        <i className="fab fa-github-alt"></i>
                     </a>
                 </li>
-                <li class="social-list">
+                <li className="social-list">
                     <a
                     target="_blank"
                     rel="noreferrer"
                     href="https://www.linkedin.com/in/prnvbirajdar/"
-                    class="social-link">
-                        <i class="fab fa-linkedin-in"></i>
+                    className="social-link">
+                        <i className="fab fa-linkedin-in"></i>
                     </a>
                 </li>
             </ul>
-
-            <a class="copyright" href="#top">Made with ❤️ by Pranav Birajdar ©2020</a>
+            <div className="copyright__div">
+                <p className="copyright__p">
+                    <a className="copyright" href="#top">©2020 Made with ❤️ by Pranav Birajdar</a>
+                </p>
+            </div>
       </footer>
      
      

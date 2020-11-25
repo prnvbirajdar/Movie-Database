@@ -4,7 +4,7 @@ import Movies from './Movies/Movies'
 import Nav from './Nav/Nav'
 import SearchResults from './SearchResults'
 import MovieDetails from './Movies/MovieDetails/MovieDetails'
-import Footer from ''
+import Footer from './Footer/Footer'
 
 const App = () => {
 
