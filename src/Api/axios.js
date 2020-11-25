@@ -14,6 +14,7 @@ const instance = axios.create({
 //Image API Base Url
 const img_api = {
     poster:"https://image.tmdb.org/t/p/w185", // other width options w92 ,154, 185, 342, 500, 780, original
+    posterBig:"https://image.tmdb.org/t/p/w342",
     backdrop:"https://image.tmdb.org/t/p/w1280" //"w300", "w780", "w1280", "original"
 } 
 

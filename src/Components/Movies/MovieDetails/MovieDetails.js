@@ -52,18 +52,21 @@ function MovieDetails({match}) {
             <div className="movieDetails__backdrop" 
                 style={{backgroundImage: `linear-gradient(0deg, rgba(20,20,20,1) 0%, rgba(20,20,20,0.8071603641456583) 100%), url(${img_api.backdrop}${movie?.backdrop_path})`}}>
                 <div className="movieDetails__main" >
-                    <img className="movieDetails__mainPoster" src={img_api.poster + movie?.poster_path} alt={movie?.title}/>
+                    <img className="movieDetails__mainPoster" src={img_api.posterBig + movie?.poster_path} alt={movie?.title}/>
                     <div className="movieDetails__info">
-                        <h1>{movie?.title || movie?.original_name || movie?.name} <span>({movie.release_date.substring(0,4)})</span></h1>
-                        <div className="movieDetails__titleEtc">
-                            <p>{Math.floor(movie.runtime/60)}h {(movie.runtime%60)}m </p> {/*converts mins to hr min*/}
-                            <p className="movieDetails__rating">{movie.vote_average}</p>
-                            <i class="far fa-play-circle" onClick={()=> setOpen(true)}>Play Trailer</i>
-                        </div>
-                        <p>Overview: {movie.overview}</p> 
+                        <h1 className="movieDetails__title">{movie?.title || movie?.original_name || movie?.name} <span>({movie.release_date.substring(0,4)})</span></h1>
                         {credits.crew && credits.crew
                             .filter(credit=> credit.job === 'Director').slice(0,1)
-                            .map(credit=> <p key={credit.id}>Director: {credit.original_name}</p>)} {/*filter over the crew array to find the director and then render it*/}
+                            .map(credit=> <p className="movieDetails__director" key={credit.id}>Directed by <span className="movieDetails__director__span">{credit.original_name}</span> </p>)} {/*filter over the crew array to find the director and then render it*/}
+                        <div className="movieDetails__titleEtc">
+                            <div>
+                                <p>{Math.floor(movie.runtime/60)}h {(movie.runtime%60)}m </p> {/*converts mins to hr min*/}
+                                <p className="movieDetails__rating">{movie.vote_average}</p>
+                            </div>
+                            <button className="banner__button" onClick={()=> setOpen(true)}>Play Trailer</button>
+                        </div>
+                        <p>Overview: {movie.overview}</p> 
+                        
                     
                         <div className="movieDetails__genres">Genre:&nbsp;&nbsp;
                             {movie.genres.map((m,i)=>{

@@ -1,20 +1,38 @@
-
-.movieDetails__cast{
+.movieDetails__cast__profile{
     display: flex;
-    flex-direction: column;
+  flex-direction: column;
+}
+
+.movieDetails__cast__card{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 .movieDetails__cast__images{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    object-fit: contain; /* maintains aspect ratio  */
+    max-height: 12rem;
     width: auto;
-     /* Sonny said 100% for image to fit full width of screen. it was messing it up, so changed it to auto */
-    max-height: 25em;
 }
 
-.movieDetails__cast__title{
-    font-size: 1.3rem;
-    font-weight: 700;
+@media (min-width: 1100px){
+    .movieDetails__cast{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .movieDetails__cast__profile{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        object-fit: contain; /* maintains aspect ratio  */
+        width: auto;
+        /* Sonny said 100% for image to fit full width of screen. it was messing it up, so changed it to auto */
+        max-height: 25em;
+    }
+
+    .movieDetails__cast__title{
+        font-size: 1.3rem;
+        font-weight: 700;
+    }
 }
