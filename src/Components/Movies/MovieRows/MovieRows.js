@@ -28,7 +28,6 @@ const MoviesRow = ({title, handleAPI})=>{
 
     return (
         <React.Fragment>
-            
                 <div className="row">
                     <h2 className="row__title">{title}</h2>
                     <div className='row__posters'>

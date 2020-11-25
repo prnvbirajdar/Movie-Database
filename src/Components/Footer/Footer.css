@@ -10,7 +10,7 @@
 
 .social-link:link,
 .social-link:visited{
-    color: #a8b2d1;
+    color: rgba(229, 229, 229, 0.726);
     margin: 0 0.6em;
     font-size: 1.8rem;
 }
@@ -30,7 +30,7 @@
 
 .copyright{
     font-family: inherit;
-    opacity: 0.4;
+    opacity: 0.6;
     font-size: 0.8rem;
     text-decoration: none;
     color: #e5e5e5;
@@ -38,6 +38,7 @@
 
 .copyright:hover,
 .copyright:focus{
-    color: rgb(255, 255, 255);
+    color: rgb(255, 45, 45);
     cursor: pointer;
+    transition: color 0.2s ease-out;
 }

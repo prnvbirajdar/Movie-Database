@@ -32,7 +32,15 @@
     opacity: 0.8; /* Firefox */
   }
 
-.fa-film{
+.fa-film,
+.fa-film:link,
+.fa-film:visited{
+    color:#e5e5e5;
     font-size: 2rem;
-    color: #e5e5e5;
+}
+
+.fa-film:hover,
+.fa-film:focus{
+    color: rgba(255, 45, 45, 0.753);
+    transition: color 0.2s ease-out;
 }
