@@ -1,8 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import {instance, img_api} from '../../../Api/axios';
 import './MovieDetails.css';
-import {Link} from 'react-router-dom';
+// import {Link} from 'react-router-dom';
 import Credits from './Credits/Credits'
+import Similar from './Similar/Similar'
 
 import '../../../../node_modules/react-modal-video/css/modal-video.min.css';
 import ModalVideo from 'react-modal-video'
@@ -41,6 +42,8 @@ function MovieDetails({match}) {
         fetchMovie()
     
     },[match.params.id])
+
+    console.log(similar);
 
     //prevents from rendering empty arrays and giving errors.
     if(!movie.genres || !credits.cast || !credits.crew || !trailer) return null
@@ -87,20 +90,7 @@ function MovieDetails({match}) {
             </div>
 
             <div className='movieDetails__similar'>
-                <h2 className="movieDetails__similar__title">More Like This</h2>
-                <div className="movieDetails__similar__images">
-                    {similar && similar.map(movie=>{
-                    return (
-                        <div key={movie.id}>
-                            <Link to={`/movie/${movie.id}`}><img src={img_api.poster + movie?.poster_path} alt={movie.title}/></Link>
-                            {/*<div className="row__movie-info">
-                                <h1>{movie?.title || movie?.original_name || movie?.name}</h1>
-                                <span>{movie.vote_average}</span>
-                            </div>
-                            <p>{movie.overview}</p> */}
-                        </div>
-                    )})}
-                </div>
+               <Similar similar={similar}/>
             </div>
         </div>
     )

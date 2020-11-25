@@ -1,8 +1,10 @@
 import React from 'react'
 import {img_api} from '../../../../Api/axios';
-
+import './Credits.css'
 
 function Credits(credits) {
+
+    console.log(credits);
     return (
         <div>
             <h2 className="movieDetails__cast__title">Cast</h2>
