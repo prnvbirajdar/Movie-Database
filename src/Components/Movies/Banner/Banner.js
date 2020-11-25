@@ -6,7 +6,6 @@ import {Link} from 'react-router-dom'
 function Banner() {
     const [movie, setMovie] = useState([])
 
-
     useEffect(()=>{
         const fetchData = async ()=>{
             const response = await instance.get(requests.upcomingMovies)

@@ -9,6 +9,14 @@
     padding: 0;
 }
 
+.movieDetails__backdrop{
+    object-fit: contain;
+    max-width: 100%;
+    height: 80vh;
+    background-size: cover;
+    background-position: top center;
+}
+
 .movieDetails__main{
     display: flex;
     justify-content: space-evenly;
@@ -46,6 +54,12 @@
     border: 1px solid red;
     padding: 0.5em 0.7em;
     background-color: rgba(255, 0, 0, 0.349);
+}
+
+.fa-play-circle{
+    font-size: 2rem;
+    color: #e5e5e5;
+    cursor:pointer;
 }
 
 .movieDetails__trailer{

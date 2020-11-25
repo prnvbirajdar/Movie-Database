@@ -46,24 +46,27 @@ function MovieDetails({match}) {
 
     return (
         <div className="movieDetails">
-            <div className="movieDetails__main">
-                <img className="movieDetails__mainPoster" src={img_api.poster + movie?.poster_path} alt={movie?.title}/>
-                <div className="movieDetails__info">
-                    <h1>{movie?.title || movie?.original_name || movie?.name} <span>({movie.release_date.substring(0,4)})</span></h1>
-                    <div className="movieDetails__titleEtc">
-                        <p>{Math.floor(movie.runtime/60)}h {(movie.runtime%60)}min </p> {/*converts mins to hr min*/}
-                        <p className="movieDetails__rating">{movie.vote_average}</p>
-                        <i class="far fa-play-circle" onClick={()=> setOpen(true)}>Play Trailer</i>
-                    </div>
-                    <p>Overview: {movie.overview}</p> 
-                    {credits.crew && credits.crew
-                        .filter(credit=> credit.job === 'Director').slice(0,1)
-                        .map(credit=> <p key={credit.id}>Director: {credit.original_name}</p>)} {/*filter over the crew array to find the director and then render it*/}
-                   
-                    <div className="movieDetails__genres">Genre:&nbsp;&nbsp;
-                        {movie.genres.map((m,i)=>{
-                            return <p key={m.id} className="movieDetails__genre">{(i ? '| ' : '')}{m.name}</p>
-                        })}
+            <div className="movieDetails__backdrop" style={{
+                backgroundImage: `linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6) ), url(${img_api.backdrop}${movie?.backdrop_path})`}}>
+                <div className="movieDetails__main" >
+                    <img className="movieDetails__mainPoster" src={img_api.poster + movie?.poster_path} alt={movie?.title}/>
+                    <div className="movieDetails__info">
+                        <h1>{movie?.title || movie?.original_name || movie?.name} <span>({movie.release_date.substring(0,4)})</span></h1>
+                        <div className="movieDetails__titleEtc">
+                            <p>{Math.floor(movie.runtime/60)}h {(movie.runtime%60)}min </p> {/*converts mins to hr min*/}
+                            <p className="movieDetails__rating">{movie.vote_average}</p>
+                            <i class="far fa-play-circle" onClick={()=> setOpen(true)}>Play Trailer</i>
+                        </div>
+                        <p>Overview: {movie.overview}</p> 
+                        {credits.crew && credits.crew
+                            .filter(credit=> credit.job === 'Director').slice(0,1)
+                            .map(credit=> <p key={credit.id}>Director: {credit.original_name}</p>)} {/*filter over the crew array to find the director and then render it*/}
+                    
+                        <div className="movieDetails__genres">Genre:&nbsp;&nbsp;
+                            {movie.genres.map((m,i)=>{
+                                return <p key={m.id} className="movieDetails__genre">{(i ? '| ' : '')}{m.name}</p>
+                            })}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -77,8 +80,6 @@ function MovieDetails({match}) {
                     onClose={() => setOpen(false)} 
                 />}
             </div>
-            
-
           
             <div className="movieDetails__cast">
                 <h2 className="movieDetails__cast__title">Cast</h2>
