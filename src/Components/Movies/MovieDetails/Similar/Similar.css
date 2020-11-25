@@ -1,0 +1,28 @@
+
+.movieDetails__similar{
+    display: flex;
+    flex-direction: column;
+}
+
+.movieDetails__similar__images{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    object-fit: contain; /* maintains aspect ratio  */
+    width: auto;
+     /* Sonny said 100% for image to fit full width of screen. it was messing it up, so changed it to auto */
+    max-height: 25em;
+}
+
+.movieDetails__similar__title{
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.movieDetails__similar__images{
+    transition: transform 450ms; /* Zooms into the poster on hover */
+}
+
+.movieDetails__similar__images:hover{
+    transform:scale(1.06);
+}

@@ -41,7 +41,7 @@ function Banner() {
                       <Link to={`/movie/${movie.id}`}><button className="banner__button">Details</button> </Link>
                         <h1 className="banner__overview">{truncate(movie.overview, 150)}</h1>
                     </div>
-                <div className="banner--fadeBottom "/>
+                <div className="banner__fadeBottom "/>
             </header>
         </React.Fragment>
     )
