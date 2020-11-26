@@ -1,18 +1,43 @@
+.movieDetails__cast{
+    margin-top: 3em;
+}
+
+.movieDetails__cast__title{
+    margin-bottom: 1em;
+    text-align: center;
+} 
+
 .movieDetails__cast__profile{
     display: flex;
-  flex-direction: column;
+    flex-direction: column;
 }
 
 .movieDetails__cast__card{
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
     align-items: center;
+    margin-bottom: 1em;
+}
+
+.movieDetails__cast__card:last-child{
+    margin-bottom: 0;
 }
 
 .movieDetails__cast__images{
     max-height: 12rem;
     width: auto;
+    border-radius: 5px;
+    margin-left: 2.5em;
+}
+
+.movieDetails__cast__text{
+    max-width: 10em;
+    margin-left: 1em;
+}
+
+.movieDetails__cast__name{
+    font-size: 1.1rem;
+    font-weight: 700;
 }
 
 @media (min-width: 1100px){

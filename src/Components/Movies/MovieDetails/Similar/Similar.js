@@ -6,18 +6,14 @@ import {Link} from 'react-router-dom';
 function Similar(similar) {
 
     return (
-        <div>
+        <div className="movieDetails__similar">
             <h2 className="movieDetails__similar__title">More Like This</h2>
-            <div className="movieDetails__similar__images">
+            <div className="movieDetails__similar__profile">
                 {similar.similar && similar.similar.map(movie=>{
                 return (
-                    <div key={movie.id}>
-                        <Link to={`/movie/${movie.id}`}><img src={img_api.poster + movie?.poster_path} alt={movie.title}/></Link>
-                        {/*<div className="row__movie-info">
-                            <h1>{movie?.title || movie?.original_name || movie?.name}</h1>
-                            <span>{movie.vote_average}</span>
-                        </div>
-                        <p>{movie.overview}</p> */}
+                    <div key={movie.id}  className="movieDetails__similar__card">
+                        <Link to={`/movie/${movie.id}`}><img className="movieDetails__similar__images" src={img_api.poster + movie?.poster_path} alt={movie.title}/></Link>
+                        <p>{movie?.title || movie?.original_name || movie?.name} <span>({movie.release_date.substring(0,4)})</span></p>
                     </div>
                 )})}
             </div>

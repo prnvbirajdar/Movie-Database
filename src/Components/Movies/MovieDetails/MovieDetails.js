@@ -59,13 +59,13 @@ function MovieDetails({match}) {
                             .filter(credit=> credit.job === 'Director').slice(0,1)
                             .map(credit=> <p className="movieDetails__director" key={credit.id}>Directed by <span className="movieDetails__director__span">{credit.original_name}</span> </p>)} {/*filter over the crew array to find the director and then render it*/}
                         <div className="movieDetails__titleEtc">
-                            <div>
+                            <div className="movieDetails__Etc">
                                 <p>{Math.floor(movie.runtime/60)}h {(movie.runtime%60)}m </p> {/*converts mins to hr min*/}
                                 <p className="movieDetails__rating">{movie.vote_average}</p>
                             </div>
                             <button className="banner__button" onClick={()=> setOpen(true)}>Play Trailer</button>
                         </div>
-                        <p>Overview: {movie.overview}</p> 
+                        <p className="movieDetails__overview">Overview: {movie.overview}</p> 
                         
                     
                         <div className="movieDetails__genres">Genre:&nbsp;&nbsp;
