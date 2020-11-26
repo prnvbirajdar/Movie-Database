@@ -33,7 +33,8 @@ function Banner() {
             <header 
                 className="banner"
                 style={{
-                backgroundImage: `linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url(${img_api.backdrop}${movie?.backdrop_path})`}}
+                backgroundImage: `linear-gradient(0deg, rgba(20,20,20,1) 7%, rgba(20,20,20,0.2816001400560224) 100%)
+                , url(${img_api.backdrop}${movie?.backdrop_path})`}}
             >
                     <div className="banner__contents">
                         <h1 className="banner__title">{movie?.title || movie?.original_name || movie?.name}</h1>

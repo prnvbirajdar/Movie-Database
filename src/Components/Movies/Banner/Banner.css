@@ -49,12 +49,6 @@
     transition: all 200ms;
 }
 
-.banner__fadeBottom{
-    height:75vh;
-    background: rgb(255 255 255 / 0%) linear-gradient(to bottom, rgb(255 255 255 / 0%) 0%, 
-    #141414 75%) repeat scroll 0 0;
-}
-
 
 @media (min-width: 600px){
     .banner__overview{
@@ -82,7 +76,7 @@
 
 @media (min-width: 800px){
     .banner__contents{
-        padding-top: 20em;
+        padding-top: 18em;
     }
 }
 
@@ -91,7 +85,7 @@
 
     .banner__contents{
         margin-left: 6em;
-        padding-top: 20em;
+        padding-top: 18em;
     }
 
     .banner__title{

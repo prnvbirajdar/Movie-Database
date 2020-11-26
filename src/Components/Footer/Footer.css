@@ -1,5 +1,6 @@
+
 .social{
-    margin: 6em 0 3em;
+    margin: 4em 0 2em;
     display: flex;
     justify-content: center;
 }
@@ -12,7 +13,7 @@
 .social-link:visited{
     color: rgba(229, 229, 229, 0.726);
     margin: 0 0.6em;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 }
 
 .social-link:hover,
@@ -31,7 +32,7 @@
 .copyright{
     font-family: inherit;
     opacity: 0.6;
-    font-size: 0.8rem;
+    font-size: 0.6rem;
     text-decoration: none;
     color: #e5e5e5;
 }
@@ -41,4 +42,20 @@
     color: rgb(255, 45, 45);
     cursor: pointer;
     transition: color 0.2s ease-out;
+}
+
+
+@media (min-width :800px){
+    .copyright{
+        font-size: 0.8rem;
+    }
+
+    .social-link:link,
+    .social-link:visited{
+        font-size: 1.5rem;
+    }
+
+    .social{
+        margin: 6em 0 3em;
+    }
 }
