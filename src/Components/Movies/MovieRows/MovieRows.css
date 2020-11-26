@@ -1,11 +1,10 @@
 .row{
     margin-left: 2em;
-    margin-top: 2em;
-    /* margin-right: 1em; */
+    margin-top: 1.5em;
 }
 
 .row__title{
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: 700;
 }
 
@@ -22,18 +21,14 @@
 }
 
 .row__movie{
-    margin-right: 5em;
+    margin-right: 2.5em;
 }
-/* 
-.row__movie:last-child{
-    margin-right: 2em;
-} */
 
 .row__poster{
     object-fit: contain; /* maintains aspect ratio  */
     width: auto;
      /* Sonny said 100% for image to fit full width of screen. it was messing it up, so changed it to auto */
-    max-height: 25em;
+    max-height: 18em;
     transition: transform 450ms; /* Zooms into the poster on hover */
 }
 
@@ -41,9 +36,57 @@
     transform:scale(1.06);
 }
 
-.row__movie-info{
-    display: flex;
-    padding: 1.5em 0;
-    align-items: flex-start;
-    justify-content: space-between;
+@media (min-width: 600px)  {
+    .row{
+        margin-top: 2em;
+    }
+    
+    .row__title{
+        font-size: 1.3rem;
+    }
+
+    .row__movie{
+        margin-right: 3em;
+    }
+ 
+    .row__poster{
+        max-height: 22em;
+    }
+ 
 }
+
+@media (min-width: 800px)  {
+    .row{
+        margin-top: 2em;
+    }
+    
+    .row__title{
+        font-size: 1.3rem;
+    }
+
+    .row__movie{
+        margin-right: 3em;
+    }
+ 
+    .row__poster{
+        max-height: 25em;
+    }
+ 
+}
+
+
+@media (min-width: 1000px)  {
+    .row{
+        margin-top: 3em;
+    }
+    
+    .row__title{
+        margin-bottom: 0.5em;
+    }
+    .row__movie{
+        margin-right: 4em;
+    }
+
+}
+
+
