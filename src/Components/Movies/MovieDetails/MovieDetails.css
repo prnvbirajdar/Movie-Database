@@ -3,45 +3,84 @@
 }
 
 .movieDetails__mainPoster{
-    max-height: 20rem;
-    width: auto;
+    min-height: 15rem;
+    max-height: 22rem;
+    display: block;
+    object-fit: contain;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 5em;
+}
+
+.movieDetails__title,
+.movieDetails__director,
+.movieDetails__runtime{
+    text-align: center;
+    margin: 0.5em;
 }
 
 .movieDetails__title{
     font-size: 2rem;
     font-weight: 700;
+    line-height: 1.4;
 }
 
 .movieDetails__director{
-    font-size: 1rem;
+    font-size: 1.1rem;
 }
 
 .movieDetails__director__span{
     font-weight: 700;
+    font-size: 1.2rem;
 }
 
-.movieDetails__titleEtc{
+.movieDetails__buttonDiv{
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    margin: 1em;
 }
 
-.movieDetails__titleEtc div{
-    display: flex;
-    flex-direction:row;
-}
-
-.movieDetails__overview{
-    max-width: 80%;
+.movieDetails__diabledButton{
+    cursor: not-allowed;
+    pointer-events: none;
+    color: red;
 }
 
 .movieDetails__genres{
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    margin: 0.5em;
 }
+
+
+.movieDetails__overview{
+    margin: 0 1.8em;
+    text-align: justify;
+
+}
+
 
 .movieDetails__genre{
     margin-right: 0.5em;
 }
+
+@media (min-width: 500px){
+    .movieDetails__overview{
+        margin: 0 6em;
+
+    }
+
+}
+
+@media (min-width: 700px){
+    .movieDetails__overview{
+        margin: 0 8em;
+
+    }
+
+}
+
 
 @media (min-width: 1100px){
 
@@ -77,31 +116,6 @@
     .movieDetails__info{
         margin-left: 3em;
         /* margin-top: 2em; */
-    }
-
-    /* .movieDetails__info *{
-        margin-top: 1em;
-    } */
-
-    .movieDetails__titleEtc{
-        display: flex;
-        flex-direction: row;
-        border: 1px solid greenyellow;
-        align-items: baseline;
-    }
-
-    .movieDetails__titleEtc p {
-        margin-left: 2em;
-    }
-
-    .movieDetails__titleEtc p:first-child {
-        margin-left: 0;
-    }
-
-    .movieDetails__rating{
-        border: 1px solid red;
-        padding: 0.5em 0.7em;
-        background-color: rgba(255, 0, 0, 0.349);
     }
 
     .fa-play-circle{

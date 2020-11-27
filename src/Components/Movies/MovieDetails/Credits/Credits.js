@@ -5,12 +5,15 @@ import './Credits.css'
 function Credits(credits) {
 
     return (
+     
+        credits.cast.length !== 0 ?
+
         <div className="movieDetails__cast">
             <h2 className="movieDetails__cast__title">Cast</h2>
             <div className="movieDetails__cast__profile">
             {credits.cast && credits.cast
                 .filter(credit=>{return credit?.profile_path !== null || "" || undefined})
-                .slice(0,4)
+                .slice(0,6)
                 .map(credit=>{
                 return (
                     <div className="movieDetails__cast__card" key={credit.id}> {/*maps over cast array and renders first 4 actors*/}
@@ -24,6 +27,8 @@ function Credits(credits) {
             })}
             </div>  
         </div>
+        
+        : <React.Fragment></React.Fragment>
     )
 }
 

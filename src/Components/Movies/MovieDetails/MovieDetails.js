@@ -14,7 +14,7 @@ function MovieDetails({match}) {
     const [similar, setSimilar] = useState([])
 
     const [isOpen, setOpen] = useState(false)
-    const [trailer,setTrailer] = useState('')
+    const [trailer,setTrailer] = useState([])
 
     useEffect(()=>{
         const fetchMovie = async ()=>{
@@ -27,24 +27,29 @@ function MovieDetails({match}) {
                     return movie?.poster_path !== null || "" || undefined
                 }).slice(0,4)
 
+                // const filteredTrailerArray = response.data.videos.results.filter(m=>{
+                //     return m !== []
+                // })
 
                 const finalTrailer = response.data.videos.results.filter(movie=>{
                     return movie?.type === 'Trailer'
                 }).slice(0,1)
 
+                
             setMovie(response.data)
             setCredits(response.data.credits)
             setSimilar(refinedSimilarMovies)
-            setTrailer(finalTrailer[0].key)
+            setTrailer(finalTrailer)
 
             return response
         }
+
         fetchMovie()
     
     },[match.params.id])
 
     //prevents from rendering empty arrays and giving errors.
-    if(!movie.genres || !credits.cast || !credits.crew || !trailer) return null
+    if(!movie.genres || !credits.cast || !credits.crew  ) return null
 
 
     return (
@@ -58,34 +63,32 @@ function MovieDetails({match}) {
                         {credits.crew && credits.crew
                             .filter(credit=> credit.job === 'Director').slice(0,1)
                             .map(credit=> <p className="movieDetails__director" key={credit.id}>Directed by <span className="movieDetails__director__span">{credit.original_name}</span> </p>)} {/*filter over the crew array to find the director and then render it*/}
-                        <div className="movieDetails__titleEtc">
-                            <div className="movieDetails__Etc">
-                                <p>{Math.floor(movie.runtime/60)}h {(movie.runtime%60)}m </p> {/*converts mins to hr min*/}
-                                <p className="movieDetails__rating">{movie.vote_average}</p>
-                            </div>
-                            <button className="banner__button" onClick={()=> setOpen(true)}>Play Trailer</button>
-                        </div>
-                        <p className="movieDetails__overview">Overview: {movie.overview}</p> 
-                        
-                    
-                        <div className="movieDetails__genres">Genre:&nbsp;&nbsp;
-                            {movie.genres.map((m,i)=>{
+                        {movie.runtime !== 0 ? <p className="movieDetails__runtime">{Math.floor(movie.runtime/60)}h {(movie.runtime%60)}m </p> : <p></p> } {/*conditional rendering doesn't render 0 min. Runtime is converted mins to hr min*/}                        
+                        <div className="movieDetails__genres">
+                            {movie.genres.slice(0,3).map((m,i)=>{
                                 return <p key={m.id} className="movieDetails__genre">{(i ? '| ' : '')}{m.name}</p>
                             })}
                         </div>
+                        <div className="movieDetails__buttonDiv">
+                            <button className="banner__button movieDetails__button" onClick={()=> setOpen(true)}>Play Trailer</button>
+                        </div>
+                        
+                        <p className="movieDetails__overview">{movie.overview}</p> 
                     </div>
                 </div>  
                 <div className="movieDetails__fadeBottom"/>          
             </div>
             
             <div className="movieDetails__trailer">
-                {trailer && <ModalVideo 
+                {trailer.length !== 0 
+                    ? <ModalVideo 
                     channel='youtube' 
                     autoplay
                     isOpen={isOpen} 
-                    videoId={trailer} 
-                    onClose={() => setOpen(false)} 
-                />}
+                    videoId={trailer[0].key} 
+                    onClose={() => setOpen(false)} />
+                        : <div></div>
+                }
             </div>
           
             <div className="movieDetails__cast">

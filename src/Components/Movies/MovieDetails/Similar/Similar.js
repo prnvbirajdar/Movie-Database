@@ -6,6 +6,8 @@ import {Link} from 'react-router-dom';
 function Similar(similar) {
 
     return (
+        similar.similar.length !== 0 ?
+
         <div className="movieDetails__similar">
             <h2 className="movieDetails__similar__title">More Like This</h2>
             <div className="movieDetails__similar__profile">
@@ -17,7 +19,9 @@ function Similar(similar) {
                     </div>
                 )})}
             </div>
-        </div>
+        </div> 
+        
+        : <React.Fragment></React.Fragment>
     )
 }
 
