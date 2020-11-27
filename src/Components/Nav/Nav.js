@@ -62,16 +62,15 @@ function Nav() {
                     </Link>
                 </div>
 
-                <form  onSubmit={handleSubmit}>
-                    <i class="fas fa-search"> 
+                <form className="nav__form" onSubmit={handleSubmit} autocomplete="off">
                         <input 
                         type='text' 
+                        name="search"
                         className="nav__input" 
                         placeholder="Search movie" 
                         value={searchTerm}
                         onChange={handleChange}
-                        />
-                    </i>
+                        />         
                 </form>
             </div>
         </nav>

@@ -32,8 +32,10 @@ function Banner() {
         <React.Fragment>
             <header 
                 className="banner"
-                style={{
-                backgroundImage: `linear-gradient(0deg, rgba(20,20,20,1) 7%, rgba(20,20,20,0.2816001400560224) 100%)
+                style={{ 
+                //     borderTop: '1px solid transparent',
+                // backgroundClip: 'content-box',
+                backgroundImage: `linear-gradient(0deg, rgba(20,20,20,1) 4%, rgba(20,20,20,0.45807072829131656) 100%)
                 , url(${img_api.backdrop}${movie?.backdrop_path})`}}
             >
                     <div className="banner__contents">

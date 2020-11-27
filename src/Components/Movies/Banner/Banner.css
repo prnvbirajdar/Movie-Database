@@ -58,13 +58,13 @@
     }
 
     .banner__title{
-        font-size: 4rem;
+        font-size: 3.5rem;
         padding-bottom: 0.3em;
     }
 
     .banner__contents{
         margin-left: 4em; 
-        padding-top: 18em;
+        padding-top: 16em;
         margin-right: 3em;
     }
 
@@ -76,7 +76,7 @@
 
 @media (min-width: 800px){
     .banner__contents{
-        padding-top: 18em;
+        padding-top: 17em;
     }
 }
 
@@ -85,7 +85,7 @@
 
     .banner__contents{
         margin-left: 6em;
-        padding-top: 18em;
+        padding-top: 16em;
     }
 
     .banner__title{
@@ -97,6 +97,11 @@
     .banner__overview{
         min-width: 30em;
         max-width: 35em;
+    }
+
+    .banner__button{
+        padding: 0.85em 1.7em;
+        font-size: 1.1rem;
     }
 
 }
