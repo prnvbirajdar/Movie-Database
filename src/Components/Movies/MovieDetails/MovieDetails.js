@@ -2,7 +2,8 @@ import React, {useState, useEffect} from 'react';
 import {instance, img_api} from '../../../Api/axios';
 import './MovieDetails.css';
 //import {Link} from 'react-router-dom';
-import Credits from './Credits/Credits'
+import Cast from './Cast/Cast'
+import Crew from './Crew/Crew'
 import Similar from './Similar/Similar'
 
 import '../../../../node_modules/react-modal-video/css/modal-video.min.css';
@@ -55,24 +56,34 @@ function MovieDetails({match}) {
     return (
         <div className="movieDetails">
             <div className="movieDetails__backdrop" 
-                style={{backgroundImage: `linear-gradient(0deg, rgba(20,20,20,1) 0%, rgba(20,20,20,0.8071603641456583) 100%), url(${img_api.backdrop}${movie?.backdrop_path})`}}>
+                style={{  backgroundRepeat: 'no-repeat',
+                backgroundPosition: 'top center',
+                backgroundSize:'cover',
+                objectFit:'contain',
+                 backgroundImage: `linear-gradient(0deg, rgba(20,20,20,1) 0%, rgba(20,20,20,0.8071603641456583) 100%), url(${img_api.backdrop}${movie?.backdrop_path})`}}>
                 <div className="movieDetails__main" >
-                    <img className="movieDetails__mainPoster" src={img_api.posterBig + movie?.poster_path} alt={movie?.title}/>
                     <div className="movieDetails__info">
-                        <h1 className="movieDetails__title">{movie?.title || movie?.original_name || movie?.name} <span>({movie.release_date.substring(0,4)})</span></h1>
-                        {credits.crew && credits.crew
-                            .filter(credit=> credit.job === 'Director').slice(0,1)
-                            .map(credit=> <p className="movieDetails__director" key={credit.id}>Directed by <span className="movieDetails__director__span">{credit.original_name}</span> </p>)} {/*filter over the crew array to find the director and then render it*/}
-                        {movie.runtime !== 0 ? <p className="movieDetails__runtime">{Math.floor(movie.runtime/60)}h {(movie.runtime%60)}m </p> : <p></p> } {/*conditional rendering doesn't render 0 min. Runtime is converted mins to hr min*/}                        
-                        <div className="movieDetails__genres">
-                            {movie.genres.slice(0,3).map((m,i)=>{
-                                return <p key={m.id} className="movieDetails__genre">{(i ? '| ' : '')}{m.name}</p>
-                            })}
+                        <div>
+                            <img className="movieDetails__mainPoster" src={img_api.posterBig + movie?.poster_path} alt={movie?.title}/>
                         </div>
-                        <div className="movieDetails__buttonDiv">
-                            <button className="banner__button movieDetails__button" onClick={()=> setOpen(true)}>Play Trailer</button>
+                        <div className="movieDetails__mainInfo">
+                            <h1 className="movieDetails__title">{movie?.title || movie?.original_name || movie?.name} <span>({movie.release_date.substring(0,4)})</span></h1>
+                            {credits.crew && credits.crew
+                                .filter(credit=> credit.job === 'Director').slice(0,1)
+                                .map(credit=> <p className="movieDetails__director" key={credit.id}>Directed by <span className="movieDetails__director__span">{credit.original_name}</span> </p>)} {/*filter over the crew array to find the director and then render it*/}
+                            {movie.runtime !== 0 ? <p className="movieDetails__runtime">{Math.floor(movie.runtime/60)}h {(movie.runtime%60)}m </p> : <p></p> } {/*conditional rendering doesn't render 0 min. Runtime is converted mins to hr min*/}                        
+                            <div className="movieDetails__genres">
+                                {movie.genres.slice(0,3).map((m,i)=>{
+                                    return <p key={m.id} className="movieDetails__genre">{(i ? '| ' : '')}{m.name}</p>
+                                })}
+                            </div>
+                            <div className="movieDetails__buttonDiv">
+                                <button className="banner__button movieDetails__button" onClick={()=> setOpen(true)}>Play Trailer</button>
+                            </div>
                         </div>
-                        
+                    </div>
+
+                    <div>
                         <p className="movieDetails__overview">{movie.overview}</p> 
                     </div>
                 </div>  
@@ -87,12 +98,17 @@ function MovieDetails({match}) {
                     isOpen={isOpen} 
                     videoId={trailer[0].key} 
                     onClose={() => setOpen(false)} />
-                        : <div></div>
+                    
+                    : <div></div>
                 }
             </div>
           
             <div className="movieDetails__cast">
-               <Credits {...credits}/>
+               <Cast {...credits}/>
+            </div>
+
+            <div className="movieDetails__cast">
+                <Crew {...credits}/>
             </div>
 
             <div className='movieDetails__similar'>

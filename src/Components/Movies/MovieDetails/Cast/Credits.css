@@ -1,42 +1,57 @@
+.movieDetails__credits{
+    margin-top: 2em;
+}
 
-.movieDetails__similar__title{
+ .movieDetails__credits__title{
     text-align: center;
 } 
 
-
-.movieDetails__similar__profile{
+.movieDetails__credits__profile{
     display: flex;
     overflow-y: hidden; /* hides vertical scrolling in the row */
     overflow-x: scroll; /* allows for horizontal scrolling in the row  */
-    margin: 0em 1em 0 1em;
+    margin: 0.5em 1em 0 1em;
     padding: 1em 0.5em;
 }
 
-.movieDetails__similar__profile::-webkit-scrollbar{
+.movieDetails__credits__profile::-webkit-scrollbar{
     display: none; /* hides the scrollbar for horizontal scrolling */
 }
 
-.movieDetails__similar__card{
-    margin-top: 0.5em;
-    border-radius: 5px;
-    margin-right: 1em;
 
+.movieDetails__credits__card{
+    text-align: center;
+    margin-right: 1em;
 }
 
-.movieDetails__similar__images{
-    height: 14rem;
+.movieDetails__credits__images{
+    height: 12rem;
     width: auto;
-    border-radius: 5px;
+    border-radius: 100vh;
+}
+
+.movieDetails__credits__text{
+    max-width: 10em;
+    margin-left: 1em;
+}
+
+.movieDetails__credits__name{
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.movieDetails__creditsCrew{
+    margin-top:0;
 
 }
 
 @media (min-width: 1100px){
-    .movieDetails__similar{
+    .movieDetails__credits{
         display: flex;
         flex-direction: column;
     }
 
-    .movieDetails__similar__profile{
+    .movieDetails__credits__profile{
         display: flex;
         flex-direction: row;
         justify-content: center;
@@ -46,16 +61,8 @@
         max-height: 25em;
     }
 
-    .movieDetails__similar__title{
+    .movieDetails__credits__title{
         font-size: 1.3rem;
         font-weight: 700;
-    }
-
-    .movieDetails__similar__images{
-        transition: transform 450ms; /* Zooms into the poster on hover */
-    }
-
-    .movieDetails__similar__images:hover{
-        transform:scale(1.06);
     }
 }
