@@ -52,6 +52,22 @@ function MovieDetails({match}) {
     //prevents from rendering empty arrays and giving errors.
     if(!movie.genres || !credits.cast || !credits.crew  ) return null
 
+    // //Moves the overview paragraph to a different div when screen resolution changes
+    // window.addEventListener('load', function () {
+    //     var a = document.querySelector('.a');
+    //     var b = document.querySelector('.b');
+    //     var c = document.querySelector('.p');
+    
+    //     window.addEventListener('resize', ()=> {
+    //         if (1000 >= window.innerWidth ) {
+    //             b.appendChild(c);
+    //             // c.dataset.location = 'b';
+    //         } else if (1000 < window.innerWidth) {
+    //             a.appendChild(c);
+    //             // c.dataset.location = 'a';
+    //         }
+    //     });
+    // });
 
     return (
         <div className="movieDetails">
@@ -80,14 +96,15 @@ function MovieDetails({match}) {
                             <div className="movieDetails__buttonDiv">
                                 <button className="banner__button movieDetails__button" onClick={()=> setOpen(true)}>Play Trailer</button>
                             </div>
+                            <div className="a">
+                                <p data-location="a" className="movieDetails__overview p">{movie.overview}</p> 
+                            </div>
                         </div>
                     </div>
 
-                    <div>
-                        <p className="movieDetails__overview">{movie.overview}</p> 
+                    <div className="movieDetails__overviewDiv b">
                     </div>
                 </div>  
-                <div className="movieDetails__fadeBottom"/>          
             </div>
             
             <div className="movieDetails__trailer">
