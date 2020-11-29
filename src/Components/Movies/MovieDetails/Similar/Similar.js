@@ -14,8 +14,8 @@ function Similar(similar) {
                 {similar.similar && similar.similar.map(movie=>{
                 return (
                     <div key={movie.id}  className="movieDetails__similar__card">
-                        <Link to={`/movie/${movie.id}`}><img className="movieDetails__similar__images" src={img_api.poster + movie?.poster_path} alt={movie.title}/></Link>
-                    </div>
+                        <Link to={`/movie/${movie.id}`}><img onclick={window.scrollTo(0, 0)} className="movieDetails__similar__images" src={img_api.poster + movie?.poster_path} alt={movie.title}/></Link>
+                        </div>
                 )})}
             </div>
         </div> 

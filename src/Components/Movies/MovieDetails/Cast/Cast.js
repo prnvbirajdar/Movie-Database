@@ -13,7 +13,7 @@ function Cast(credits) {
             <div className="movieDetails__credits__profile">
             {credits.cast && credits.cast
                 .filter(credit=>{return credit?.profile_path !== null || "" || undefined})
-                .slice(0,6)
+                .slice(0,10)
                 .map(credit=>{
                 return (
                     <div className="movieDetails__credits__card" key={credit.id}> {/*maps over cast array and renders first 4 actors*/}

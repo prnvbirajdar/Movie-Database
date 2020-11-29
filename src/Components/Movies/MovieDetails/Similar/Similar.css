@@ -20,42 +20,51 @@
     margin-top: 0.5em;
     border-radius: 5px;
     margin-right: 1em;
-
 }
 
 .movieDetails__similar__images{
     height: 14rem;
     width: auto;
     border-radius: 5px;
-
 }
 
-@media (min-width: 1100px){
+.movieDetails__similar__images{
+    transition: transform 450ms; /* Zooms into the poster on hover */
+}
+
+.movieDetails__similar__images:hover{
+    transform:scale(1.06);
+}
+
+@media (min-width: 750px){
+    .movieDetails__similar__title{
+        text-align: start;
+        margin-left: 2em;
+    }
+
+    .movieDetails__similar__card{
+        margin-right: 1.5em;
+    }
+    .movieDetails__similar__card:first-child{
+        margin-left: 1em;
+    }
+
+}
+@media (min-width: 1000px){
     .movieDetails__similar{
         display: flex;
         flex-direction: column;
     }
 
-    .movieDetails__similar__profile{
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        object-fit: contain; /* maintains aspect ratio  */
-        width: auto;
-        /* Sonny said 100% for image to fit full width of screen. it was messing it up, so changed it to auto */
-        max-height: 25em;
+    .movieDetails__similar__title{
+        font-size: 1.625rem;
     }
 
-    .movieDetails__similar__title{
-        font-size: 1.3rem;
-        font-weight: 700;
+    .movieDetails__similar__card{
+        margin-right: 2em;
     }
 
     .movieDetails__similar__images{
-        transition: transform 450ms; /* Zooms into the poster on hover */
-    }
-
-    .movieDetails__similar__images:hover{
-        transform:scale(1.06);
+        height: 16rem;
     }
 }

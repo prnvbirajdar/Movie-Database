@@ -23,6 +23,8 @@
     font-size: 2rem;
     font-weight: 700;
     line-height: 1.4;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
 }
 
 .movieDetails__director{
@@ -128,16 +130,12 @@
 
     .movieDetails__mainPoster{
         min-height: 25rem;
-        max-height: 35rem;
-        border: 2px solid white;
-    }
-
-    .movieDetails__mainInfo{
-        border: 2px solid white;
+        max-height: 30rem;
     }
 
     .movieDetails__overview{
-        margin: 2em 10em 0;
+        font-size: 1.1rem;
+        margin: 0 4em 0 2em;
     }
 
     .movieDetails{
@@ -180,4 +178,6 @@
     .movieDetails__overview{
         font-size: 1.2rem;
     }
+
+    
 }
