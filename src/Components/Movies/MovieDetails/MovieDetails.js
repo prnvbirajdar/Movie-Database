@@ -51,6 +51,7 @@ function MovieDetails({match}) {
 
     //prevents from rendering empty arrays and giving errors.
     if(!movie.genres || !credits.cast || !credits.crew  ) return null
+    
     return (
         <div className="movieDetails">
             <div className="movieDetails__backdrop" 

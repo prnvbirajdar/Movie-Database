@@ -11,7 +11,7 @@ const SearchResults = () => {
 
 const history = useHistory()
 const movieSearchResults = history.location.movieRows
-const searchInput = history.location.searchInput
+// const searchInput = history.location.searchInput
 
 console.log(movieSearchResults);
 
@@ -38,14 +38,7 @@ console.log(movieSearchResults);
             (
                 <div className="no-results">
                   <div className="no-results__text">
-                    <p>Your search for "{searchInput}" did not have any matches.</p>
-                    <p>Suggestions:</p>
-                    <ul>
-                      <li>Try different keywords</li>
-                      <li>Looking for a movie or TV show?</li>
-                      <li>Try using a movie, TV show title, an actor or director</li>
-                      <li>Try a genre, like comedy, romance, sports, or drama</li>
-                    </ul>
+                    <p>Your search did not have any matches. <br/> Try different keywords.</p>
                   </div>
                 </div>
               )

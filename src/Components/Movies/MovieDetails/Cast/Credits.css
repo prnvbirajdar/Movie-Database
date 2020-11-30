@@ -27,8 +27,9 @@
 
 .movieDetails__credits__images{
     height: 9rem;
-    width: auto;
+    width: 6.625rem;
     border-radius: 100vh;
+    object-fit: cover;
 }
 
 /* .movieDetails__credits__text{
