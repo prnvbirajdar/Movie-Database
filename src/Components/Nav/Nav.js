@@ -1,13 +1,10 @@
 import React, {useState, useEffect} from 'react'
 import './Nav.css'
 import {requests, instance} from '../../Api/axios';
-import {Link} from 'react-router-dom'
-// import Search from './Search'
-
+import {Link, useHistory, withRouter} from 'react-router-dom'
 
 function Nav() {
     // SCROLLING SECTION
-    
     const [searchTerm, setSearchTerm] = useState('')
     const [movies,setMovies] = useState([])
 
@@ -32,49 +29,70 @@ function Nav() {
 
     // MOVIE SEARCH SECTION
     //funtion that calls API
-    const getMovies = async (api)=>{
-        const response = await instance.get(api).catch(err => { console.log("Search Error",err.response) })
+    const getMovies = async (apiSearchTerm)=>{
+        // default apiSearchTerm is '/search/movie?query=' and it's length is 21.
+        // if length is 21, the input is empty and we get back to main page
+        //else we go to '/search' page of our React website
+        if(apiSearchTerm.substr(21).length <= 1){
+            history.push('/')
+            return
+        }
+
+        const response = await instance.get(apiSearchTerm).catch(err => { console.log("Search Error",err.response) })
         setMovies(response.data.results)
+        history.push({
+            pathname: '/search',
+            movieRows: movies,
+            searchInput: apiSearchTerm.substr(20)
+          });
+
     }
 
-    //Handles form tag from reloading on pressing enter
-    const handleSubmit=(e)=>{
-        e.preventDefault()
-        
-    }
+    let history = useHistory();
 
     //Renders movies based on what's being typed
     const handleChange = (e)=>{
-        setSearchTerm(e.target.value)
-        if(searchTerm){
-            getMovies(`${requests.searchMovies}?query=${searchTerm}`)
-         }
+       setSearchTerm(e.target.value)
+
+       if(searchTerm){
+        getMovies(`${requests.searchMovies}?query=${searchTerm}`)
+        } 
+
     }
 
-    console.log(movies);
+    const handleOnSubmit=(e)=>{
+        e.preventDefault()
+
+        setSearchTerm('')
+
+    }
+
+console.log(movies)
 
     return (
-        <nav>
-            <div className={`nav ${navbar && "nav__active"}`}>
-                <div className="nav__icon">
-                    <Link to="/">
-                        <i className="fas fa-film"></i>
-                    </Link>
+            <nav>
+                <div className={`nav ${navbar && "nav__active"}`}>
+                    <div className="nav__icon">
+                        <Link to="/">
+                            <i className="fas fa-film"></i>
+                        </Link>
+                    </div>
+                        <form onSubmit={handleOnSubmit}>
+                            <input 
+                            type='text' 
+                            name="search"
+                            className="nav__input" 
+                            placeholder="Search movie" 
+                            value={searchTerm}
+                            onChange={handleChange}
+                            autoComplete='off'
+                            onFocus="this.value=''"/> 
+                            
+                        </form>        
                 </div>
-
-                <form className="nav__form" onSubmit={handleSubmit} autocomplete="off">
-                        <input 
-                        type='text' 
-                        name="search"
-                        className="nav__input" 
-                        placeholder="Search movie" 
-                        value={searchTerm}
-                        onChange={handleChange}
-                        />         
-                </form>
-            </div>
-        </nav>
+            </nav>
     )
 }
 
-export default Nav
+export default withRouter(Nav)
+

@@ -1,35 +1,57 @@
-// import React from 'react';
+import React from 'react';
+import {useHistory, Link} from 'react-router-dom'
+import {img_api} from '../Api/axios'
+import './SearchResults.css'
 
 
-// const img_api = "https://image.tmdb.org/t/p/w342"
+const SearchResults = () => {
 
-// const SearchResults = (props) => {
+//useHistory helps use state from a different component without defining a child or parent component.
+//it helps reroute the entire array from one component to another
 
-    // const searchedMovies = props.searchList.map((movie)=>{
-    //     return (<div key={movie.id}>
-    //         <h3>{movie.title}</h3>
-    //         <img src={img_api + movie.poster_path} alt="poster"/>
-    //         <p>{movie.vote_average}</p>
-    //         <p>{movie.overview}</p>
-    //     </div>)
-    // })
+const history = useHistory()
+const movieSearchResults = history.location.movieRows
+const searchInput = history.location.searchInput
 
-//     return (
-//         <div>
-//             {searchedMovies}
-//         </div>  
-//     );
-// }
- 
-// export default SearchResults;
+console.log(movieSearchResults);
 
-// const MovieResults = ({title,poster_path,vote_average,overview}) => {
-//     return (<div>
-//         <h3>{title}</h3>
-//         <img src={img_api + poster_path} alt="poster"/>
-//         <p>{vote_average}</p>
-//         <p>{overview}</p>
-//     </div>)
-// }
+    return (
+        <>
+            {movieSearchResults ?
+            (
+                <div className="searchResults">
+                    <h2 className="searchResults__title">Movie List</h2>
+                    <div className="searchResults__div">
+                        {movieSearchResults
+                            .filter((movie)=>{return movie.poster_path !== null || "" || undefined})
+                                .map(movie=>{
+                                    return (
+                                        <div key={movie.id} className="searchResults__card" >
+                                            <Link to={`/movie/${movie.id}`}><img onclick={window.scrollTo(0, 0)} className="searchResults__images"  src={img_api.poster + movie.poster_path} alt={movie.title}/></Link>
+                                        </div>
+                                    )
+                        })}
+                    </div>
+                </div>
+            ):
+                
+            (
+                <div className="no-results">
+                  <div className="no-results__text">
+                    <p>Your search for "{searchInput}" did not have any matches.</p>
+                    <p>Suggestions:</p>
+                    <ul>
+                      <li>Try different keywords</li>
+                      <li>Looking for a movie or TV show?</li>
+                      <li>Try using a movie, TV show title, an actor or director</li>
+                      <li>Try a genre, like comedy, romance, sports, or drama</li>
+                    </ul>
+                  </div>
+                </div>
+              )
+            }
+        </>
+    )
+}
 
-// export default MovieResults
+export default SearchResults;
