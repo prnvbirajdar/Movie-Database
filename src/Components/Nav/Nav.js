@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import './Nav.css'
 import {requests, instance} from '../../Api/axios';
 import {Link, useHistory, withRouter} from 'react-router-dom'
-import _ from 'lodash';
+// import _ from 'lodash';
 
 function Nav() {
     // SCROLLING SECTION
