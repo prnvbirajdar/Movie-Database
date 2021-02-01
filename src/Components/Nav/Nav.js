@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import "./Nav.css";
 import { requests, instance } from "../../Api/axios";
 import { Link, useHistory, withRouter } from "react-router-dom";
-// import _ from 'lodash';
 
 function Nav({ searchTerm, setSearchTerm }) {
   // SCROLLING SECTION
@@ -32,6 +31,8 @@ function Nav({ searchTerm, setSearchTerm }) {
 
   //funtion that calls API
   let getMovies = async (apiSearchTerm) => {
+
+    console.log(apiSearchTerm);
     // default apiSearchTerm is '/search/movie?query=' and it's length is 21.
     // if length is 21, the input is empty and we get back to main page
     //else we go to '/search' page of our React website
@@ -50,8 +51,6 @@ function Nav({ searchTerm, setSearchTerm }) {
       searchInput: apiSearchTerm.substr(20),
     });
   };
-
-  // getMovies = _.debounce(getMovies,500)
 
   //Renders movies based on what's being typed
   const handleChange = (e) => {

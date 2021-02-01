@@ -15,14 +15,17 @@ const App = () => {
         <div>
           <Nav searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
           <Switch>
-            <Route path="/" exact component={Movies} />
+            <Route
+              path="/"
+              exact
+              render={(props) => (
+                <Movies {...props} setSearchTerm={setSearchTerm} />
+              )}
+            />
             <Route
               path="/search"
               render={(props) => (
-                <SearchResults
-                  {...props}
-                  setSearchTerm={setSearchTerm}
-                />
+                <SearchResults {...props} setSearchTerm={setSearchTerm} />
               )}
             />
             <Route path="/movie/:id" component={MovieDetails} />
@@ -37,7 +40,6 @@ const App = () => {
 export default App;
 
 //component={SearchResults}
-
 
 // import SearchBar from './SearchBar';
 // import SearchResults from './SearchResults'

@@ -13,7 +13,7 @@ function Banner() {
 
                 // refinedMovies removes all the movie objects with broken image files,
                 // and selects a random movie to display
-                const refinedMovies = response.data.results.filter((movie)=>{
+                const refinedMovies = response?.data?.results.filter((movie)=>{
                     return movie?.backdrop_path !== null || "" || undefined
                 })
 

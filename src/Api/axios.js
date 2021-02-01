@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // API Key
-const api_key = "c7c1da267bcdbf81a6bc2a04f1c8d3a6";
+const api_key = `${process.env.REACT_APP_API_KEY}`;
 
 // Axios Create Instance
 const instance = axios.create({
