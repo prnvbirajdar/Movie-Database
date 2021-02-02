@@ -5,6 +5,7 @@ function Footer() {
     return (
         <footer className="footer">
             <ul className="social">
+                
                 <li className="social-list">
                     <a
                     target="_blank"
@@ -35,7 +36,7 @@ function Footer() {
             </ul>
             <div className="copyright__div">
                 <p className="copyright__p">
-                    <a className="copyright" href="#top">©2020 Made with ❤️ by Pranav Birajdar</a>
+                    <a className="copyright" href="#top">©2021 Made with ❤️ by Pranav Birajdar</a>
                 </p>
             </div>
       </footer>
