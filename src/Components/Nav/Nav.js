@@ -4,7 +4,6 @@ import { requests, instance } from "../../Api/axios";
 import { Link, useHistory, withRouter } from "react-router-dom";
 
 function Nav({ searchTerm, setSearchTerm }) {
-  console.log(searchTerm);
   // SCROLLING SECTION
   const [movies, setMovies] = useState([]);
 
@@ -33,8 +32,8 @@ function Nav({ searchTerm, setSearchTerm }) {
   //funtion that calls API
   const getMovies = async (apiSearchTerm) => {
     console.log(apiSearchTerm);
-    // default apiSearchTerm is '/search/movie?query=' and it's length is 21.
-    // if length is 21, the input is empty and we get back to main page
+    // default apiSearchTerm is 'e.target.value'.
+    // if length is 0, the input is empty and we get back to main page
     //else we go to '/search' page of our React website
     if (apiSearchTerm.length <= 1) {
       history.push("/");
@@ -66,10 +65,6 @@ function Nav({ searchTerm, setSearchTerm }) {
 
     setSearchTerm("");
   };
-
-  // if(movies.length === 0 ) return null
-
-  console.log(movies);
 
   return (
     <nav>

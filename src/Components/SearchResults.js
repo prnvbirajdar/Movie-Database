@@ -4,7 +4,7 @@ import { useHistory, Link } from "react-router-dom";
 import { img_api } from "../Api/axios";
 import "./SearchResults.css";
 
-const SearchResults = ({setSearchTerm }) => {
+const SearchResults = ({ setSearchTerm }) => {
   //useHistory helps use state from a different component without defining a child or parent component.
   //it helps reroute the entire array from one component to another
 

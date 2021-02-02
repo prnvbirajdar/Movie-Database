@@ -1,79 +1,79 @@
-.searchResults{
-    margin-top: 10em;
+.searchResults {
+  margin-top: 10em;
 }
 
-.searchResults__title{
-    text-align: center;
-    margin-bottom: 0.5em;
-    font-size: 1.3rem;
+.searchResults__title {
+  text-align: center;
+  margin-bottom: 0.5em;
+  font-size: 1.3rem;
 }
 
-.searchResults__div{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+.searchResults__div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-.searchResults__card{
-    margin-top: 0.5em;
-    border-radius: 5px;
-    margin-right: 1em;
+.searchResults__card {
+  margin-top: 0.5em;
+  border-radius: 5px;
+  margin-right: 1em;
 }
 
-.searchResults__images{
-    max-height: 14rem;
-    width: auto;
-    border-radius: 8px;
-    transition: transform 450ms; /* Zooms into the poster on hover */
-    padding: 0.5em 0.5em;
+.searchResults__images {
+  max-height: 14rem;
+  width: auto;
+  border-radius: 8px;
+  transition: transform 450ms; /* Zooms into the poster on hover */
+  padding: 0.5em 0.5em;
 }
 
-.searchResults__images:hover{
-    transform:scale(1.05);
+.searchResults__images:hover {
+  transform: scale(1.05);
 }
 
-.no-results{
-    height: 90vh;
-    position: relative;
-    text-align: center;
+.no-results {
+  height: 90vh;
+  position: relative;
+  text-align: center;
 }
 
 .no-results p {
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 1rem;
-  }
-
-@media (min-width: 750px)  {
-
-    .searchResults__title{
-        text-align: left;
-        margin-left: 1em;
-        font-size: 1.625rem;
-    }
-
-    .searchResults__images{
-        max-height: 16rem;
-        margin:0.5em 0.5em;
-    }
-
-    .no-results p {
-        font-size: 1.3rem;
-      }
-    
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1rem;
 }
 
-@media (min-width: 1000px){
+@media (min-width: 750px) {
+  .searchResults__title {
+    text-align: center;
+    margin-left: 1em;
+    font-size: 1.625rem;
+  }
 
-    .searchResults__title{
-        text-align: left;
-        margin-left: 1em;
-    }
-  
-    .searchResults__images{
-        max-height: 16rem;
-    }
+  .searchResults__images {
+    max-height: 16rem;
+    margin: 0.5em 0.5em;
+  }
+
+  .no-results p {
+    font-size: 1.3rem;
+  }
+}
+
+@media (min-width: 1000px) {
+  .searchResults__card {
+    margin-right: 1.5em;
+  }
+
+  .searchResults__title {
+    font-size: 2rem;
+  }
+
+  .searchResults__images {
+    max-height: 16rem;
+  }
 }
