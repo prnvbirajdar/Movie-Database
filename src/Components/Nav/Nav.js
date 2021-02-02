@@ -4,6 +4,7 @@ import { requests, instance } from "../../Api/axios";
 import { Link, useHistory, withRouter } from "react-router-dom";
 
 function Nav({ searchTerm, setSearchTerm }) {
+  console.log(searchTerm);
   // SCROLLING SECTION
   const [movies, setMovies] = useState([]);
 
@@ -30,35 +31,34 @@ function Nav({ searchTerm, setSearchTerm }) {
   let history = useHistory();
 
   //funtion that calls API
-  let getMovies = async (apiSearchTerm) => {
-
+  const getMovies = async (apiSearchTerm) => {
     console.log(apiSearchTerm);
     // default apiSearchTerm is '/search/movie?query=' and it's length is 21.
     // if length is 21, the input is empty and we get back to main page
     //else we go to '/search' page of our React website
-    if (apiSearchTerm.substr(21).length <= 3) {
+    if (apiSearchTerm.length <= 1) {
       history.push("/");
       return;
     }
 
-    const response = await instance.get(apiSearchTerm).catch((err) => {
-      console.log("Search Error", err.response);
-    });
+    const response = await instance
+      .get(`${requests.searchMovies}?query=${apiSearchTerm}`)
+      .catch((err) => {
+        console.log("Search Error", err.response);
+      });
     setMovies(response.data.results);
     history.push({
       pathname: "/search",
       movieRows: movies,
-      searchInput: apiSearchTerm.substr(20),
+      searchInput: apiSearchTerm,
     });
   };
 
   //Renders movies based on what's being typed
-  const handleChange = (e) => {
-    setSearchTerm(e.target.value);
+  const handleChange = async (e) => {
+    await setSearchTerm(e.target.value);
 
-    if (searchTerm) {
-      getMovies(`${requests.searchMovies}?query=${searchTerm}`);
-    }
+    await getMovies(searchTerm);
   };
 
   const handleOnSubmit = (e) => {
