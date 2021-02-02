@@ -12,7 +12,11 @@ function Movies({ setSearchTerm }) {
         handleAPI={requests.trendingMovies}
         setSearchTerm={setSearchTerm}
       />
-      <MoviesRow title={"Popular Movies"} handleAPI={requests.popularMovies} />
+      <MoviesRow
+        title={"Popular Movies"}
+        handleAPI={requests.popularMovies}
+        setSearchTerm={setSearchTerm}
+      />
       <MoviesRow
         setSearchTerm={setSearchTerm}
         title={"Top Rated Movies"}

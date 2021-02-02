@@ -1,10 +1,17 @@
-import React, { useState } from "react";
+import React, { Suspense, useState } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import Movies from "./Movies/Movies";
 import Nav from "./Nav/Nav";
-import SearchResults from "./SearchResults";
-import MovieDetails from "./Movies/MovieDetails/MovieDetails";
 import Footer from "./Footer/Footer";
+
+// import Movies from "./Movies/Movies";
+// import SearchResults from "./SearchResults";
+// import MovieDetails from "./Movies/MovieDetails/MovieDetails";
+
+const Movies = React.lazy(() => import("./Movies/Movies"));
+const SearchResults = React.lazy(() => import("./SearchResults"));
+const MovieDetails = React.lazy(() =>
+  import("./Movies/MovieDetails/MovieDetails")
+);
 
 const App = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -14,22 +21,36 @@ const App = () => {
       <BrowserRouter>
         <div>
           <Nav searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-          <Switch>
-            <Route
-              path="/"
-              exact
-              render={(props) => (
-                <Movies {...props} setSearchTerm={setSearchTerm} />
-              )}
-            />
-            <Route
-              path="/search"
-              render={(props) => (
-                <SearchResults {...props} setSearchTerm={setSearchTerm} />
-              )}
-            />
-            <Route path="/movie/:id" component={MovieDetails} />
-          </Switch>
+          <Suspense
+            fallback={
+              <div>
+                <h1 style={{ color: "#fff" }}>Loading</h1>
+              </div>
+            }
+          >
+            <Switch>
+              <Route
+                path="/"
+                exact
+                render={(props) => (
+                  <Movies
+                    {...props}
+                    setSearchTerm={setSearchTerm}
+                    searchTerm={searchTerm}
+                  />
+                )}
+              />
+
+              <Route
+                path="/search"
+                render={(props) => (
+                  <SearchResults {...props} setSearchTerm={setSearchTerm} />
+                )}
+              />
+              <Route path="/movie/:id" component={MovieDetails} />
+            </Switch>
+          </Suspense>
+
           <Footer />
         </div>
       </BrowserRouter>
