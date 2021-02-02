@@ -3,10 +3,6 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Nav from "./Nav/Nav";
 import Footer from "./Footer/Footer";
 
-// import Movies from "./Movies/Movies";
-// import SearchResults from "./SearchResults";
-// import MovieDetails from "./Movies/MovieDetails/MovieDetails";
-
 const Movies = React.lazy(() => import("./Movies/Movies"));
 const SearchResults = React.lazy(() => import("./SearchResults"));
 const MovieDetails = React.lazy(() =>
@@ -17,14 +13,21 @@ const App = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   return (
-    <div className="app">
-      <BrowserRouter>
+    <BrowserRouter>
+      <div className="app">
         <div>
           <Nav searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
           <Suspense
             fallback={
-              <div>
-                <h1 style={{ color: "#fff" }}>Loading</h1>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  height: "100vh",
+                }}
+              >
+                <h1>Loading...</h1>
               </div>
             }
           >
@@ -53,8 +56,8 @@ const App = () => {
 
           <Footer />
         </div>
-      </BrowserRouter>
-    </div>
+      </div>
+    </BrowserRouter>
   );
 };
 
