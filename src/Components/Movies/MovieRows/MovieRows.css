@@ -1,90 +1,88 @@
-.row{
-    margin-left: 2em;
-    margin-top: 1.5em;
+.row {
+  margin-left: 2em;
+  margin-top: 1.5em;
 }
 
-.row__title{
-    font-size: 1.3rem;
-    font-weight: 700;
+.row__title {
+  font-size: 1.3rem;
+  font-weight: 700;
 }
 
-.row__posters{
-    display: flex;
-    overflow-y: hidden; /* hides vertical scrolling in the row */
-    overflow-x: scroll; /* allows for horizontal scrolling in the row  */
-    margin-right: 2em;
-    padding: 0.75em 0.5em;
+.row__posters {
+  display: flex;
+  overflow-y: hidden; /* hides vertical scrolling in the row */
+  overflow-x: scroll; /* allows for horizontal scrolling in the row  */
+  margin-right: 2em;
+  padding: 0.75em 0.5em;
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
 }
 
-
-.row__posters::-webkit-scrollbar{
-    display: none; /* hides the scrollbar for horizontal scrolling */
+.row__posters::-webkit-scrollbar {
+  display: none; /* hides the scrollbar for horizontal scrolling for Safari and Chrome */
 }
 
-.row__movie{
-    margin-right: 2.5em;
+.row__movie {
+  margin-right: 2.5em;
 }
 
-.row__poster{
-    object-fit: contain; /* maintains aspect ratio  */
-    width: auto;
-     /* Sonny said 100% for image to fit full width of screen. it was messing it up, so changed it to auto */
-    max-height: 18em;
-    transition: transform 450ms; /* Zooms into the poster on hover */
+.row__poster {
+  object-fit: contain; /* maintains aspect ratio  */
+  width: auto;
+  /* Sonny said 100% for image to fit full width of screen. it was messing it up, so changed it to auto */
+  max-height: 18em;
+  transition: transform 450ms; /* Zooms into the poster on hover */
 }
 
-.row__poster:hover{
-    transform:scale(1.06);
+.row__poster:hover {
+  transform: scale(1.06);
 }
 
-@media (min-width: 600px)  {
-    .row{
-        margin-top: 2em;
-    }
-    
-    .row__title{
-        font-size: 1.625rem;
-    }
+@media (min-width: 600px) {
+  .row {
+    margin-top: 2em;
+  }
 
-    .row__movie{
-        margin-right: 3em;
-    }
- 
-    .row__poster{
-        max-height: 22em;
-    }
- 
+  .row__title {
+    font-size: 1.625rem;
+  }
+
+  .row__movie {
+    margin-right: 3em;
+  }
+
+  .row__poster {
+    max-height: 22em;
+  }
 }
 
-@media (min-width: 800px)  {
-    .row{
-        margin-top: 2em;
-    }
-    
-    .row__title{
-        font-size: 1.625rem;
-    }
+@media (min-width: 800px) {
+  .row {
+    margin-top: 2em;
+  }
 
-    .row__movie{
-        margin-right: 3em;
-    }
- 
-    .row__poster{
-        max-height: 23em;
-    }
- 
+  .row__title {
+    font-size: 1.625rem;
+  }
+
+  .row__movie {
+    margin-right: 3em;
+  }
+
+  .row__poster {
+    max-height: 23em;
+  }
 }
 
-@media (min-width: 1000px)  {
-    .row{
-        margin-top: 3em;
-    }
-    
-    .row__title{
-        margin-bottom: 0.5em;
-    }
-    .row__movie{
-        margin-right: 4em;
-    }
+@media (min-width: 1000px) {
+  .row {
+    margin-top: 3em;
+  }
 
+  .row__title {
+    margin-bottom: 0.5em;
+  }
+  .row__movie {
+    margin-right: 4em;
+  }
 }
