@@ -1,7 +1,7 @@
 import React from "react";
 import { img_api } from "../../../../Api/axios";
 import "./Credits.css";
-import BackupImage from "../Cast/i2.png";
+import BackupImage from "../Cast/i2.webp";
 import { useHorizontalScroll } from "../../useHorizontalScroll";
 
 function Cast(credits) {
