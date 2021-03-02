@@ -1,35 +1,35 @@
-.movieDetails__credits{
-    margin-top: 2em;
+
+.movieDetails__credits {
+  margin-top: 2em;
 }
 
- .movieDetails__credits__title{
-    text-align: center;
-    font-size: 1.3rem;
-} 
-
-.movieDetails__credits__profile{
-    display: flex;
-    overflow-y: hidden; /* hides vertical scrolling in the row */
-    overflow-x: scroll; /* allows for horizontal scrolling in the row  */
-    margin: 0.5em 1em 0 1em;
-    padding: 1em 0.5em;
+.movieDetails__credits__title {
+  text-align: center;
+  font-size: 1.3rem;
 }
 
-.movieDetails__credits__profile::-webkit-scrollbar{
-    display: none; /* hides the scrollbar for horizontal scrolling */
+.movieDetails__credits__profile {
+  display: flex;
+  overflow-y: hidden; /* hides vertical scrolling in the row */
+  overflow-x: scroll; /* allows for horizontal scrolling in the row  */
+  margin: 0.5em 1em 0 1em;
+  padding: 1em 0.5em;
 }
 
-
-.movieDetails__credits__card{
-    text-align: center;
-    margin-right: 1em;
+.movieDetails__credits__profile::-webkit-scrollbar {
+  display: none; /* hides the scrollbar for horizontal scrolling */
 }
 
-.movieDetails__credits__images{
-    height: 9rem;
-    width: 6.625rem;
-    border-radius: 100vh;
-    object-fit: cover;
+.movieDetails__credits__card {
+  text-align: center;
+  margin-right: 1em;
+}
+
+.movieDetails__credits__images {
+  height: 9rem;
+  width: 6.625rem;
+  border-radius: 100vh;
+  object-fit: cover;
 }
 
 /* .movieDetails__credits__text{
@@ -37,87 +37,83 @@
     margin-left: 1em;
 } */
 
-.movieDetails__credits__name{
-    font-size: 1.05rem;
+.movieDetails__credits__name {
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.movieDetails__creditsCrew {
+  margin-top: 0;
+}
+
+@media (min-width: 750px) {
+  .movieDetails__credits {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .movieDetails__credits__card {
+    width: 6.66rem;
+    margin: 0 1em;
+  }
+
+  .movieDetails__credits__images {
+    height: 10rem;
+  }
+
+  .movieDetails__credits__profile {
+    display: flex;
+    overflow-y: hidden; /* hides vertical scrolling in the row */
+    overflow-x: scroll; /* allows for horizontal scrolling in the row  */
+    margin: 0.5em 1em 0 1em;
+    padding: 1em 0.5em;
+  }
+
+  .movieDetails__credits__profile::-webkit-scrollbar {
+    display: none; /* hides the scrollbar for horizontal scrolling */
+  }
+
+  .movieDetails__credits__profile {
+    display: flex;
+    flex-direction: row;
+    /* justify-content: center; */
+    object-fit: contain; /* maintains aspect ratio  */
+    /* width: auto; */
+    /* Sonny said 100% for image to fit full width of screen. it was messing it up, so changed it to auto */
+    max-height: 25em;
+  }
+
+  .movieDetails__credits__title {
+    text-align: start;
+    margin-left: 2em;
+  }
+
+  .movieDetails__credits__name {
+    font-size: 1.15rem;
+  }
+}
+
+@media (min-width: 1000px) {
+  .movieDetails__credits {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .movieDetails__credits__name {
+    font-size: 1.15rem;
+  }
+
+  .movieDetails__credits__card {
+    width: 7.3rem;
+    margin: 0 1em;
+  }
+
+  .movieDetails__credits__images {
+    height: 11rem;
+  }
+
+  .movieDetails__credits__title {
+    font-size: 1.625rem;
     font-weight: 700;
-}
-
-.movieDetails__creditsCrew{
-    margin-top:0;
-
-}
-
-@media (min-width: 750px){
-    .movieDetails__credits{
-        display: flex;
-        flex-direction: column;
-    }
-
-    .movieDetails__credits__card{
-       width: 6.66rem; 
-       margin: 0 1em;
-    }
-
-    .movieDetails__credits__images{
-        height: 10rem;
-    }
-
-    .movieDetails__credits__profile{
-        display: flex;
-        overflow-y: hidden; /* hides vertical scrolling in the row */
-        overflow-x: scroll; /* allows for horizontal scrolling in the row  */
-        margin: 0.5em 1em 0 1em;
-        padding: 1em 0.5em;
-
-    }
-    
-    .movieDetails__credits__profile::-webkit-scrollbar{
-        display: none; /* hides the scrollbar for horizontal scrolling */
-    }
-
-    .movieDetails__credits__profile{
-        display: flex;
-        flex-direction: row;
-        /* justify-content: center; */
-        object-fit: contain; /* maintains aspect ratio  */
-        /* width: auto; */
-        /* Sonny said 100% for image to fit full width of screen. it was messing it up, so changed it to auto */
-        max-height: 25em;
-    }
-
-    .movieDetails__credits__title{
-        text-align: start;
-        margin-left: 2em;
-    }
-
-    .movieDetails__credits__name{
-        font-size: 1.15rem;
-    }
-    
-}
-
-@media (min-width: 1000px){
-    .movieDetails__credits{
-        display: flex;
-        flex-direction: column;
-    }
-
-    .movieDetails__credits__name{
-        font-size: 1.15rem;
-    }
-
-    .movieDetails__credits__card{
-        width: 7.3rem; 
-        margin: 0 1em;
-     }
- 
-     .movieDetails__credits__images{
-         height: 11rem;
-     }
-  
-
-    .movieDetails__credits__title{
-        font-size: 1.625rem;
-        font-weight: 700;
-    }
+  }
 }

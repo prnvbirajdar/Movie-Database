@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import { instance, img_api } from "../../../Api/axios";
 import "./MovieRows.css";
 import { Link } from "react-router-dom";
-import { useHorizontalScroll } from "./useHorizontalScroll";
-
+import { useHorizontalScroll } from "../useHorizontalScroll";
 
 const MoviesRow = ({ title, handleAPI, setSearchTerm }) => {
   const [movies, setMovies] = useState([]);
