@@ -2,22 +2,13 @@ import React, { useState, useEffect } from "react";
 import { instance, img_api } from "../../../Api/axios";
 import "./MovieRows.css";
 import { Link } from "react-router-dom";
-import { useHorizontalScroll } from "./useSideScroll";
+import { useHorizontalScroll } from "./useHorizontalScroll";
 
-import "horizontal-scroll";
-//import HorizontalScroll from "react-scroll-horizontal";
 
 const MoviesRow = ({ title, handleAPI, setSearchTerm }) => {
   const [movies, setMovies] = useState([]);
 
   const scrollRef = useHorizontalScroll();
-
-  // const blocks = document.getElementsByClassName("row__movie");
-  // const container = document.getElementsByClassName("row__posters");
-  // const hs = new HorizontalScroll.default({
-  //   blocks: blocks,
-  //   container: container,
-  // });
 
   useEffect(() => {
     const fetchMovies = async () => {
