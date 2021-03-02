@@ -70,12 +70,13 @@ function Nav({ searchTerm, setSearchTerm }) {
     <nav>
       <div className={`nav ${navbar && "nav__active"}`}>
         <div className="nav__icon" onClick={() => setSearchTerm("")}>
-          <Link to="/">
+          <Link to="/" aria-label="logo icon">
             <i className="fas fa-film"></i>
           </Link>
         </div>
         <form onSubmit={handleOnSubmit}>
           <input
+            aria-label="search  "
             type="text"
             name="search"
             className="nav__input"
