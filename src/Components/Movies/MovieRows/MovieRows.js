@@ -2,11 +2,15 @@ import React, { useState, useEffect } from "react";
 import { instance, img_api } from "../../../Api/axios";
 import "./MovieRows.css";
 import { Link } from "react-router-dom";
+import { useHorizontalScroll } from "./useSideScroll";
+
 import "horizontal-scroll";
-// import Slider from "react-slick";
+//import HorizontalScroll from "react-scroll-horizontal";
 
 const MoviesRow = ({ title, handleAPI, setSearchTerm }) => {
   const [movies, setMovies] = useState([]);
+
+  const scrollRef = useHorizontalScroll();
 
   // const blocks = document.getElementsByClassName("row__movie");
   // const container = document.getElementsByClassName("row__posters");
@@ -40,7 +44,7 @@ const MoviesRow = ({ title, handleAPI, setSearchTerm }) => {
     <React.Fragment>
       <div className="row">
         <h2 className="row__title">{title}</h2>
-        <div className="row__posters">
+        <div className="row__posters" ref={scrollRef}>
           {movies &&
             movies.map((movie) => {
               return (
@@ -59,10 +63,52 @@ const MoviesRow = ({ title, handleAPI, setSearchTerm }) => {
                 </div>
               );
             })}
-        </div>{" "}
+        </div>
       </div>
     </React.Fragment>
   );
 };
 
 export default MoviesRow;
+
+// <div>
+// {movies &&
+//   movies.map((movie) => {
+//     return (
+//       <div key={movie.id} onClick={() => setSearchTerm("")}>
+//         <Link to={`/movie/${movie.id}`}>
+//           <img
+//             src={img_api.poster + movie?.poster_path}
+//             alt={movie.title}
+//           />
+//         </Link>
+//       </div>
+//     );
+//   })}
+// </div>
+
+// <React.Fragment>
+// <div className="row">
+//   <h2 className="row__title">{title}</h2>
+//   <div className="row__posters">
+//     {movies &&
+//       movies.map((movie) => {
+//         return (
+//           <div
+//             key={movie.id}
+//             className="row__movie"
+//             onClick={() => setSearchTerm("")}
+//           >
+//             <Link to={`/movie/${movie.id}`}>
+//               <img
+//                 src={img_api.poster + movie?.poster_path}
+//                 alt={movie.title}
+//                 className="row__poster"
+//               />
+//             </Link>
+//           </div>
+//         );
+//       })}
+//   </div>{" "}
+// </div>
+// </React.Fragment>

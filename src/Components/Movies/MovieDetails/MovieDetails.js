@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { instance, img_api } from "../../../Api/axios";
 import "./MovieDetails.css";
-//import {Link} from 'react-router-dom';
 import Cast from "./Cast/Cast";
 import Crew from "./Crew/Crew";
 import Similar from "./Similar/Similar";
