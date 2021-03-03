@@ -16,7 +16,7 @@ const App = () => {
     <BrowserRouter>
       <div className="app">
         <div>
-          {/*<Nav searchTerm={searchTerm} setSearchTerm={setSearchTerm} />*/}
+          <Nav searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
           <Suspense
             fallback={
               <div
