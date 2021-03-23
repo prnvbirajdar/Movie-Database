@@ -1,4 +1,3 @@
-
 .movieDetails__credits {
   margin-top: 2em;
 }
@@ -14,6 +13,8 @@
   overflow-x: scroll; /* allows for horizontal scrolling in the row  */
   margin: 0.5em 1em 0 1em;
   padding: 1em 0.5em;
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
 }
 
 .movieDetails__credits__profile::-webkit-scrollbar {

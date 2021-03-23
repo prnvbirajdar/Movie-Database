@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import { instance, img_api } from "../../../Api/axios";
 import "./MovieRows.css";
 import { Link } from "react-router-dom";
-import { useHorizontalScroll } from "../useHorizontalScroll";
+// import { useHorizontalScroll } from "../useHorizontalScroll";
 
 const MoviesRow = ({ title, handleAPI, setSearchTerm }) => {
   const [movies, setMovies] = useState([]);
 
-  const scrollRef = useHorizontalScroll();
+  // const scrollRef = useHorizontalScroll();
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -34,7 +34,10 @@ const MoviesRow = ({ title, handleAPI, setSearchTerm }) => {
     <React.Fragment>
       <div className="row">
         <h2 className="row__title">{title}</h2>
-        <div className="row__posters" ref={scrollRef}>
+        <div
+          className="row__posters"
+          // ref={scrollRef}
+        >
           {movies &&
             movies.map((movie) => {
               return (

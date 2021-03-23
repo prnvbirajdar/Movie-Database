@@ -123,7 +123,7 @@ function MovieDetails({ match }) {
               </div>
               <div className="movieDetails__buttonDiv">
                 <button
-                  className="banner__button movieDetails__button"
+                  className="trailer__button movieDetails__button"
                   onClick={() => setOpen(true)}
                 >
                   Play Trailer

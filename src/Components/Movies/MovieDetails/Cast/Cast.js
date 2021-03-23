@@ -2,17 +2,20 @@ import React from "react";
 import { img_api } from "../../../../Api/axios";
 import "./Credits.css";
 import BackupImage from "../Cast/i2.webp";
-import { useHorizontalScroll } from "../../useHorizontalScroll";
+// import { useHorizontalScroll } from "../../useHorizontalScroll";
 
 function Cast(credits) {
-  const scrollRef = useHorizontalScroll();
+  // const scrollRef = useHorizontalScroll();
 
   return credits.cast.length !== 0 ? (
     <div className="movieDetails__credits">
       <h2 className="movieDetails__credits__title">Cast</h2>
-      <div className="movieDetails__credits__profile" ref={scrollRef}>
+      <div
+        className="movieDetails__credits__profile"
+        //ref={scrollRef}
+      >
         {credits.cast &&
-          credits.cast.slice(0, 10).map((credit) => {
+          credits.cast.slice(0, 9).map((credit) => {
             return (
               <div className="movieDetails__credits__card" key={credit.id}>
                 {" "}

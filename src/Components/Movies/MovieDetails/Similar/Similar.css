@@ -1,71 +1,70 @@
+.movieDetails__similar__title {
+  text-align: center;
+  font-size: 1.3rem;
+}
 
-.movieDetails__similar__title{
-    text-align: center;
-    font-size: 1.3rem;
-} 
+.movieDetails__similar__profile {
+  display: flex;
+  overflow-y: hidden; /* hides vertical scrolling in the row */
+  overflow-x: scroll; /* allows for horizontal scrolling in the row  */
+  margin: 0em 1em 0 1em;
+  padding: 1em 0.5em;
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+}
 
+.movieDetails__similar__profile::-webkit-scrollbar {
+  display: none; /* hides the scrollbar for horizontal scrolling */
+}
 
-.movieDetails__similar__profile{
+.movieDetails__similar__card {
+  margin-top: 0.5em;
+  border-radius: 5px;
+  margin-right: 1em;
+}
+
+.movieDetails__similar__images {
+  height: 14rem;
+  width: auto;
+  border-radius: 5px;
+}
+
+.movieDetails__similar__images {
+  transition: transform 450ms; /* Zooms into the poster on hover */
+}
+
+.movieDetails__similar__images:hover {
+  transform: scale(1.06);
+}
+
+@media (min-width: 750px) {
+  .movieDetails__similar__title {
+    text-align: start;
+    margin-left: 2em;
+  }
+
+  .movieDetails__similar__card {
+    margin-right: 1.5em;
+  }
+  .movieDetails__similar__card:first-child {
+    margin-left: 1em;
+  }
+}
+@media (min-width: 1000px) {
+  .movieDetails__similar {
     display: flex;
-    overflow-y: hidden; /* hides vertical scrolling in the row */
-    overflow-x: scroll; /* allows for horizontal scrolling in the row  */
-    margin: 0em 1em 0 1em;
-    padding: 1em 0.5em;
-}
+    flex-direction: column;
+  }
 
-.movieDetails__similar__profile::-webkit-scrollbar{
-    display: none; /* hides the scrollbar for horizontal scrolling */
-}
+  .movieDetails__similar__title {
+    font-size: 1.625rem;
+  }
 
-.movieDetails__similar__card{
-    margin-top: 0.5em;
-    border-radius: 5px;
-    margin-right: 1em;
-}
+  .movieDetails__similar__card {
+    margin-right: 2em;
+  }
 
-.movieDetails__similar__images{
-    height: 14rem;
-    width: auto;
-    border-radius: 5px;
-}
-
-.movieDetails__similar__images{
-    transition: transform 450ms; /* Zooms into the poster on hover */
-}
-
-.movieDetails__similar__images:hover{
-    transform:scale(1.06);
-}
-
-@media (min-width: 750px){
-    .movieDetails__similar__title{
-        text-align: start;
-        margin-left: 2em;
-    }
-
-    .movieDetails__similar__card{
-        margin-right: 1.5em;
-    }
-    .movieDetails__similar__card:first-child{
-        margin-left: 1em;
-    }
-
-}
-@media (min-width: 1000px){
-    .movieDetails__similar{
-        display: flex;
-        flex-direction: column;
-    }
-
-    .movieDetails__similar__title{
-        font-size: 1.625rem;
-    }
-
-    .movieDetails__similar__card{
-        margin-right: 2em;
-    }
-
-    .movieDetails__similar__images{
-        height: 16rem;
-    }
+  .movieDetails__similar__images {
+    height: 16rem;
+  }
 }
