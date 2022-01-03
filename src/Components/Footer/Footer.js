@@ -42,7 +42,7 @@ function Footer() {
       <div className="copyright__div">
         <p className="copyright__p">
           <a className="copyright" href="#top" aria-label="copyright">
-            ©2021 Made with ❤️ by Pranav Birajdar
+            ©{new Date().getFullYear()} Made with ❤️ by Pranav Birajdar
           </a>
         </p>
       </div>
